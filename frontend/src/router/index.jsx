@@ -1,7 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom';
-import LoginFormPage from '../components/LoginFormPage';
-import SignupFormPage from '../components/SignupFormPage';
-import Layout from './Layout';
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "./Layout";
+import Landing from "../components/Landing/Landing";
+import { AllCarsForSell } from "../components/Cars";
 
 export const router = createBrowserRouter([
   {
@@ -9,15 +9,43 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1>Welcome!</h1>,
+        element: <Landing />,
       },
       {
-        path: "login",
-        element: <LoginFormPage />,
+        path: "/cars",
+        element: <AllCarsForSell />,
       },
       {
-        path: "signup",
-        element: <SignupFormPage />,
+        path: "/cars/:carId",
+        element: <h1>Car!</h1>,
+      },
+      {
+        path: "/sell-my-car",
+        element: <h1>Sell!</h1>,
+      },
+      {
+        path: "/history",
+        element: <h1>History!</h1>,
+      },
+      {
+        path: "/history/sells",
+        element: <h1>Sells!</h1>,
+      },
+      {
+        path: "/history/sells/:sellId",
+        element: <h1>My Sell!</h1>,
+      },
+      {
+        path: "/history/purchases",
+        element: <h1>Purchases!</h1>,
+      },
+      {
+        path: "/history/purchases/:purchaseId",
+        element: <h1>My Purchases!</h1>,
+      },
+      {
+        path: "/wishlist",
+        element: <h1>Wishlist!</h1>,
       },
     ],
   },

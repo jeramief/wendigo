@@ -43,7 +43,7 @@ def seed_vehicles():
                 ]
             ),
             model=choice(
-                ["Accord", "TL", "Camry", "F-150", "Silverado", "3 Series", "A4"]
+                ["Accord", "TL", "Camry", "Escape", "Silverado", "3 Series", "A4"]
             ),
             # trim=choice(["LX", "EX", "Base", "Sport", "Luxury", "Limited", "SE"]),
             mpg=randint(20, 40),
@@ -55,7 +55,7 @@ def seed_vehicles():
             vin="".join(
                 choice("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ") for _ in range(17)
             ),
-            image="https://www.auto-data.net/images/f59/Acura-TL-III-UA6-7.jpg",
+            image="https://wendigo-python.s3.us-east-2.amazonaws.com/th-2752580276.jpg",
         )
 
         db.session.add(vehicle)

@@ -15,9 +15,9 @@ export default function Layout() {
   return (
     <>
       <ModalProvider>
+        <Modal />
         <Navigation />
         {isLoaded && <Outlet />}
-        <Modal />
       </ModalProvider>
     </>
   );

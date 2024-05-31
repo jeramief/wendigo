@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { thunkSignup } from "../../redux/session";
+import { thunkLogin, thunkSignup } from "../../redux/session";
 import "./SignupForm.css";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [state, setState] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -26,8 +28,27 @@ function SignupFormModal() {
     const serverResponse = await dispatch(
       thunkSignup({
         email,
-        username,
+        first_name: firstName,
+        last_name: lastName,
+        state,
         password,
+      })
+    );
+
+    if (serverResponse) {
+      console.log(serverResponse);
+      setErrors(serverResponse);
+    } else {
+      closeModal();
+    }
+  };
+  const demoLogin = async (e) => {
+    e.preventDefault();
+
+    const serverResponse = await dispatch(
+      thunkLogin({
+        email: "demo@aa.io",
+        password: "password",
       })
     );
 
@@ -54,15 +75,102 @@ function SignupFormModal() {
         </label>
         {errors.email && <p>{errors.email}</p>}
         <label>
-          Username
+          First Name
           <input
             type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </label>
-        {errors.username && <p>{errors.username}</p>}
+        {errors.firstName && <p>{errors.firstName}</p>}
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </label>
+        {errors.lastName && <p>{errors.lastName}</p>}
+        <label>
+          State
+          <select
+            id="userState"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            required
+          >
+            <option value={""} disabled>
+              Select a State
+            </option>
+            {[
+              "AK",
+              "AL",
+              "AR",
+              "AS",
+              "AZ",
+              "CA",
+              "CO",
+              "CT",
+              "DC",
+              "DE",
+              "FL",
+              "GA",
+              "GU",
+              "HI",
+              "IA",
+              "ID",
+              "IL",
+              "IN",
+              "KS",
+              "KY",
+              "LA",
+              "MA",
+              "MD",
+              "ME",
+              "MI",
+              "MN",
+              "MO",
+              "MP",
+              "MS",
+              "MT",
+              "NC",
+              "ND",
+              "NE",
+              "NH",
+              "NJ",
+              "NM",
+              "NV",
+              "NY",
+              "OH",
+              "OK",
+              "OR",
+              "PA",
+              "PR",
+              "RI",
+              "SC",
+              "SD",
+              "TN",
+              "TX",
+              "UM",
+              "UT",
+              "VA",
+              "VI",
+              "VT",
+              "WA",
+              "WI",
+              "WV",
+              "WY",
+            ].map((state) => (
+              <option value={state} key={state}>
+                {state}
+              </option>
+            ))}
+          </select>
+        </label>
+        {errors.lastName && <p>{errors.lastName}</p>}
         <label>
           Password
           <input
@@ -83,7 +191,14 @@ function SignupFormModal() {
           />
         </label>
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type="submit">Sign Up</button>
+        <button className="profile-buttons" type="submit">
+          Sign Up
+        </button>
+      </form>
+      <form onSubmit={demoLogin}>
+        <button className="profile-buttons" type="submit">
+          Log In As Demo
+        </button>
       </form>
     </>
   );
