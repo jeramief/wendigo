@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Landing from "../components/Landing/Landing";
-import { AllCarsForSell } from "../components/Cars";
+import { AllCarsForSell, CarDetails } from "../components/Cars";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cars/:carId",
-        element: <h1>Car!</h1>,
+        element: <CarDetails />,
       },
       {
         path: "/sell-my-car",

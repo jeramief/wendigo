@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 
+import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 import CarCard from "./CarCard";
 import "./Cars.css";
 
