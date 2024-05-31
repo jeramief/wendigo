@@ -11,12 +11,11 @@ const AllCarsForSell = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const carsObject = useSelector((state) => state.vehiclesState);
-  const cars = Object.values(carsObject);
+  const cars = Object.values(carsObject).reverse();
 
   useEffect(() => {
     dispatch(thunkLoadVehiclesForSell()).then(() => setIsLoaded(true));
   }, [dispatch]);
-  console.log({ cars });
 
   return (
     <>
@@ -32,13 +31,8 @@ const AllCarsForSell = () => {
           </div>
           <div className="cars-list">
             {isLoaded &&
-              cars?.map((car) => {
-                <div>
-                  {console.log(car)}
-                  <h4 key={car.id}>{car.model}</h4>;
-                </div>;
-                // <CarCard car={car} />
-              })}
+              cars &&
+              cars?.map((car) => <CarCard key={car.id} car={car} />)}
           </div>
         </div>
       </main>
