@@ -12,12 +12,18 @@
   border: 1px solid black;
 }
 
-.for-sell-list-search-container {
+.cars {
   width: 100%;
+  border: 3px solid red;
+}
+
+.for-sell-list-search-container {
+  /* width: 100%; */
+  border: 3px solid red;
 }
 
 .for-sell-list-search {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .cars-list {

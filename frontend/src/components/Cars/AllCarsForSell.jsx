@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 
@@ -7,18 +7,22 @@ import "./Cars.css";
 
 const AllCarsForSell = () => {
   const dispatch = useDispatch();
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const carsObject = useSelector((state) => state.vehiclesState);
   const cars = Object.values(carsObject);
 
   useEffect(() => {
-    dispatch(thunkLoadVehiclesForSell());
+    dispatch(thunkLoadVehiclesForSell()).then(() => setIsLoaded(true));
   }, [dispatch]);
+  console.log({ cars });
 
   return (
     <>
       <main className="cars-for-sell">
         <div className="for-sell-filter-panel"></div>
-        <div className="cars-list">
+        <div className="cars">
           <div className="for-sell-list-search-container">
             <input
               className="for-sell-list-search"
@@ -27,9 +31,12 @@ const AllCarsForSell = () => {
             />
           </div>
           <div className="cars-list">
-            {cars &&
+            {isLoaded &&
               cars?.map((car) => {
-                <h4>Hello World</h4>;
+                <div>
+                  {console.log(car)}
+                  <h4 key={car.id}>{car.model}</h4>;
+                </div>;
                 // <CarCard car={car} />
               })}
           </div>
