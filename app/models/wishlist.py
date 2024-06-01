@@ -4,8 +4,8 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 WISHLIST_SCHEMA = SCHEMA if environment == "production" else None
 
-wishlist = db.Table(
-    "wishlist",
+wishlists = db.Table(
+    "wishlists",
     db.Column(
         "user_id",
         db.Integer,

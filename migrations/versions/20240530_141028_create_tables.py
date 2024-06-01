@@ -110,20 +110,20 @@ def upgrade():
         ),
         sa.PrimaryKeyConstraint("id"),
     )
-    # op.create_table(
-    #     "wishlist",
-    #     sa.Column("user_id", sa.Integer(), nullable=False),
-    #     sa.Column("vehicle_id", sa.Integer(), nullable=False),
-    #     sa.ForeignKeyConstraint(
-    #         ["user_id"],
-    #         ["users.id"],
-    #     ),
-    #     sa.ForeignKeyConstraint(
-    #         ["vehicle_id"],
-    #         ["vehicles.id"],
-    #     ),
-    #     sa.PrimaryKeyConstraint("user_id", "vehicle_id"),
-    # )
+    op.create_table(
+        "wishlists",
+        sa.Column("user_id", sa.Integer(), nullable=False),
+        sa.Column("vehicle_id", sa.Integer(), nullable=False),
+        sa.ForeignKeyConstraint(
+            ["user_id"],
+            ["users.id"],
+        ),
+        sa.ForeignKeyConstraint(
+            ["vehicle_id"],
+            ["vehicles.id"],
+        ),
+        sa.PrimaryKeyConstraint("user_id", "vehicle_id"),
+    )
     # ### end Alembic commands ###
 
 
