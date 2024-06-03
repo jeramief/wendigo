@@ -1,25 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useModal } from "../../context/Modal";
+import { thunkEditPurchase } from "../../redux/userPurchasesReducer";
 
-const EditPurchase = ({ car }) => {
+const EditPurchase = ({ purchase }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [firstName, setFirstName] = useState(purchase?.firstName);
+  const [lastName, setLastName] = useState(purchase?.lastName);
+  const [deliveryAddress, setDeliveryAddress] = useState(
+    purchase?.deliveryAddress
+  );
+
+  useEffect(() => {});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch();
+    const editPurchaseInformation = {
+      id: purchase.id,
+      userId: purchase.userId,
+      vehicleId: purchase.vehicleId,
+      firstName: firstName,
+      lastName: lastName,
+      deliveryAddress: deliveryAddress,
+      finalized: 0,
+    };
 
-    navigate("/history/purchases");
+    dispatch(thunkEditPurchase(editPurchaseInformation));
+
     closeModal();
   };
 
@@ -82,7 +96,7 @@ const EditPurchase = ({ car }) => {
               />
             </div>
 
-            <button>Purchase</button>
+            <button>Edit Information</button>
           </form>
         </div>
       ) : null}

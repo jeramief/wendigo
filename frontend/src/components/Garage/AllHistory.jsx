@@ -30,7 +30,7 @@ const AllHistory = () => {
   return (
     <div className="all-history">
       <div className="all-history-purchases">
-        <h2>Purchase History</h2>
+        <h2>Pending Purchases</h2>
         {isLoaded &&
           allHistory.map((purchase) =>
             purchase.finalized ? null : (
@@ -38,20 +38,36 @@ const AllHistory = () => {
                 <div className="all-history-purchases-details">
                   <span>
                     {`${vehicles[purchase.vehicleId].year} 
-                  ${vehicles[purchase.vehicleId].make} 
-                  ${vehicles[purchase.vehicleId].model}`}
+                      ${vehicles[purchase.vehicleId].make} 
+                      ${vehicles[purchase.vehicleId].model}`}
                   </span>
-                  <span>{vehicles[purchase.vehicleId].price}</span>
+                  <br />
+                  <span>
+                    <b>Name:</b>
+                  </span>
+                  <span>{`${purchase.firstName} ${purchase.lastName}`}</span>
+                  <br />
+                  <span>
+                    <b>Delivery Address:</b>
+                  </span>
+                  <span>{purchase.deliveryAddress}</span>
+                  <br />
+                  <span>{`$${vehicles[purchase.vehicleId].price}`}</span>
                 </div>
                 <div className="all-history-purchases-buttons">
                   <OpenModalMenuItem
-                    id="car-details-purchase-button"
-                    itemText="Purchase"
-                    modalComponent={<EditPurchase />}
+                    id="all-history-purchases-buttons-edit"
+                    buttonText="Edit"
+                    modalComponent={<EditPurchase purchase={purchase} />}
                   />
                   <OpenModalMenuItem
-                    id="car-details-purchase-button"
-                    itemText="Purchase"
+                    id="all-history-purchases-buttons-cancel"
+                    buttonText="Finalize"
+                    modalComponent={<CancelPurchase />}
+                  />
+                  <OpenModalMenuItem
+                    id="all-history-purchases-buttons-finalize"
+                    buttonText="Cancel"
                     modalComponent={<CancelPurchase />}
                   />
                 </div>
@@ -61,7 +77,7 @@ const AllHistory = () => {
       </div>
       <hr />
       <div className="all-history-sells">
-        <h2>Sell History</h2>
+        <h2>Finalized Purchases</h2>
         {isLoaded &&
           allHistory.map((purchase) =>
             purchase.finalized ? (
