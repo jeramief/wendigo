@@ -19,6 +19,7 @@ class UserBuy(db.Model):
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
     delivery_address = db.Column(db.String(200), nullable=False)
+    finalized = db.Column(db.Boolean, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
@@ -33,6 +34,7 @@ class UserBuy(db.Model):
             "firstName": self.first_name,
             "lastName": self.last_name,
             "deliveryAddress": self.delivery_address,
+            "finalized": self.finalized,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
         }

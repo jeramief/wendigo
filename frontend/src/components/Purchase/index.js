@@ -1,3 +1,5 @@
 import Purchase from "./Purchase";
+import EditPurchase from "./EditPurchase";
+import CancelPurchase from "./CancelPurchase";
 
-export default Purchase;
+export { Purchase, EditPurchase, CancelPurchase };

@@ -6,7 +6,7 @@ const loadPurchases = (purchases) => ({
 });
 
 export const thunkLoadUserPurchases = () => async (dispatch) => {
-  const response = await fetch("/api/user_purchases/new");
+  const response = await fetch("/api/user_purchases");
 
   if (response.ok) {
     const data = await response.json();
@@ -29,5 +29,10 @@ const userPurchasesReducer = (state = initialState, action) => {
       });
       return newState;
     }
+    default: {
+      return state;
+    }
   }
 };
+
+export default userPurchasesReducer;

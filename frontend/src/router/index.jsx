@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Landing from "../components/Landing/Landing";
 import { AllCarsForSell, CarDetails } from "../components/Cars";
+import AllHistory from "../components/Garage/AllHistory";
 
 export const router = createBrowserRouter([
   {
@@ -24,23 +25,23 @@ export const router = createBrowserRouter([
         element: <h1>Sell!</h1>,
       },
       {
-        path: "/history",
-        element: <h1>History!</h1>,
+        path: "/garage",
+        element: <AllHistory />,
       },
       {
-        path: "/history/sells",
+        path: "/garage/sells",
         element: <h1>Sells!</h1>,
       },
       {
-        path: "/history/sells/:sellId",
+        path: "/garage/sells/:sellId",
         element: <h1>My Sell!</h1>,
       },
       {
-        path: "/history/purchases",
+        path: "/garage/purchases",
         element: <h1>Purchases!</h1>,
       },
       {
-        path: "/history/purchases/:purchaseId",
+        path: "/garage/purchases/:purchaseId",
         element: <h1>My Purchases!</h1>,
       },
       {

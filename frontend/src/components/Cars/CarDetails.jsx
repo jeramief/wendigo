@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 import ShowImage from "../ShowImage";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
-import Purchase from "../Purchase";
+import { Purchase } from "../Purchase";
 
 const CarDetails = () => {
   const dispatch = useDispatch();

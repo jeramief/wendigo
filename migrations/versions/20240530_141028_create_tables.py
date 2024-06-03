@@ -78,6 +78,7 @@ def upgrade():
         sa.Column("first_name", sa.String(), nullable=False),
         sa.Column("last_name", sa.String(), nullable=False),
         sa.Column("delivery_address", sa.String(length=200), nullable=False),
+        sa.Column("finalized", sa.Boolean(), nullable=False),
         sa.Column("created_at", sa.DateTime(), nullable=True),
         sa.Column("updated_at", sa.DateTime(), nullable=True),
         sa.ForeignKeyConstraint(

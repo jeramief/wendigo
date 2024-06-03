@@ -12,6 +12,7 @@ def seed_user_purchases():
         first_name="Marnie",
         last_name="User",
         delivery_address="123 This Street",
+        finalized=False,
     )
     marnie_purchase_2 = UserBuy(
         user_id=2,
@@ -19,6 +20,7 @@ def seed_user_purchases():
         first_name="Marnie",
         last_name="User",
         delivery_address="123 This Street",
+        finalized=True,
     )
 
     db.session.add(marnie_purchase)

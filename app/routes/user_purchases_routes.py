@@ -33,7 +33,7 @@ def get_user_purchases(purchase_id):
     return user_purchase.to_dict()
 
 
-@user_purchases_routes.routes("/new")
+@user_purchases_routes.route("/new")
 @login_required
 def new_user_purchases():
     """

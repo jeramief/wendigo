@@ -11,3 +11,4 @@ class PurchaseForm(FlaskForm):
     delivery_address = StringField(
         "Delivery Address", validators=[DataRequired(), Length(max=100)]
     )
+    finalized = BooleanField("Finalized", validators=[DataRequired()], default=False)
