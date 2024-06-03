@@ -5,7 +5,7 @@ from flask_wtf.file import FileField, FileAllowed, FileRequired
 from app.routes.AWS_helpers import ALLOWED_EXTENSIONS
 
 
-class ImageForm(FlaskForm):
+class VehicleForm(FlaskForm):
     is_sold = BooleanField("Sold", validators=[DataRequired()], default=False)
     is_for_sell = BooleanField("For Sell", validators=[DataRequired()], default=False)
     price = IntegerField("Price", validators=[DataRequired()], default=0)

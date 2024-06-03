@@ -16,7 +16,8 @@ class UserBuy(db.Model):
     vehicle_id = db.Column(
         db.Integer, db.ForeignKey(add_prefix_for_prod("vehicles.id")), nullable=False
     )
-    user_name = db.Column(db.String, nullable=False)
+    first_name = db.Column(db.String, nullable=False)
+    last_name = db.Column(db.String, nullable=False)
     delivery_address = db.Column(db.String(200), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
@@ -29,7 +30,8 @@ class UserBuy(db.Model):
             "id": self.id,
             "userId": self.user_id,
             "vehicleId": self.vehicle_id,
-            "userName": self.user_name,
+            "firstName": self.first_name,
+            "lastName": self.last_name,
             "deliveryAddress": self.delivery_address,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,

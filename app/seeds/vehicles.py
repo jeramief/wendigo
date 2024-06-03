@@ -9,10 +9,11 @@ def seed_vehicles():
     toyota = Vehicle(
         is_sold=False,
         is_for_sell=True,
-        year=1998,
+        year=1990,
         price=500,
         make="Toyota",
         model="Tercel",
+        mileage=214552,
         # # trim='Base',
         mpg=10,
         transmission="Automatic",
@@ -45,6 +46,7 @@ def seed_vehicles():
             model=choice(
                 ["Accord", "TL", "Camry", "Escape", "Silverado", "3 Series", "A4"]
             ),
+            mileage=randint(10000, 150000),
             # trim=choice(["LX", "EX", "Base", "Sport", "Luxury", "Limited", "SE"]),
             mpg=randint(20, 40),
             transmission=choice(["Automatic", "Manual"]),

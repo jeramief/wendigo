@@ -16,6 +16,7 @@ class Vehicle(db.Model):
     year = db.Column(db.Integer)
     make = db.Column(db.String(20), nullable=False)
     model = db.Column(db.String(20), nullable=False)
+    mileage = db.Column(db.Integer, nullable=False)
     # trim = db.Column(db.String(20), nullable=False)
     mpg = db.Column(db.Integer, nullable=False)
     transmission = db.Column(db.String(20), nullable=False)
@@ -23,7 +24,7 @@ class Vehicle(db.Model):
     # fuel = db.Column(db.String(20), nullable=False)
     drivetrain = db.Column(db.String(20), nullable=False)
     color = db.Column(db.String(50), nullable=False)
-    vin = db.Column(db.String(17), nullable=False)
+    vin = db.Column(db.String(17), nullable=False, unique=True)
     image = db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
@@ -42,9 +43,10 @@ class Vehicle(db.Model):
             "price": self.price,
             "make": self.make,
             "model": self.model,
+            "mileage": self.mileage,
             # "trim": self.trim,
             "mpg": self.mpg,
-            "transission": self.transmission,
+            "transmission": self.transmission,
             # "engine": self.engine,
             # "fuel": self.fuel,
             "drivetrain": self.drivetrain,
