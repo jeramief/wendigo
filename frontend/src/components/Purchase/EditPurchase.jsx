@@ -6,7 +6,6 @@ import { useModal } from "../../context/Modal";
 import { thunkEditPurchase } from "../../redux/userPurchasesReducer";
 
 const EditPurchase = ({ purchase }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);

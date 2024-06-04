@@ -63,12 +63,12 @@ const AllHistory = () => {
                   <OpenModalMenuItem
                     id="all-history-purchases-buttons-cancel"
                     buttonText="Finalize"
-                    modalComponent={<CancelPurchase />}
+                    modalComponent={<CancelPurchase purchase={purchase} />}
                   />
                   <OpenModalMenuItem
                     id="all-history-purchases-buttons-finalize"
                     buttonText="Cancel"
-                    modalComponent={<CancelPurchase />}
+                    modalComponent={<CancelPurchase purchase={purchase} />}
                   />
                 </div>
               </div>
@@ -77,7 +77,7 @@ const AllHistory = () => {
       </div>
       <hr />
       <div className="all-history-sells">
-        <h2>Finalized Purchases</h2>
+        <h2>Delivered Vehicl</h2>
         {isLoaded &&
           allHistory.map((purchase) =>
             purchase.finalized ? (
@@ -89,13 +89,6 @@ const AllHistory = () => {
                   ${vehicles[purchase.vehicleId].model}`}
                   </span>
                   <span>{vehicles[purchase.vehicleId].price}</span>
-                </div>
-                <div className="all-history-purchases-buttons">
-                  <OpenModalMenuItem
-                    id="car-details-purchase-button"
-                    itemText="Purchase"
-                    modalComponent={<EditPurchase />}
-                  />
                 </div>
               </div>
             ) : null

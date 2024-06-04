@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useModal } from "../../context/Modal";
+import { thunkAddPurchase } from "../../redux/userPurchasesReducer";
 
 const Purchase = ({ car }) => {
   const navigate = useNavigate();
@@ -17,9 +18,18 @@ const Purchase = ({ car }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch();
+    const addPurchaseInformation = {
+      userId: currentUser.id,
+      vehicleId: car.id,
+      firstName: firstName,
+      lastName: lastName,
+      deliveryAddress: deliveryAddress,
+      finalized: 0,
+    };
 
-    navigate("/history/purchases");
+    dispatch(thunkAddPurchase(addPurchaseInformation));
+
+    navigate("/garage");
     closeModal();
   };
 

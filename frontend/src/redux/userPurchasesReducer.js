@@ -27,6 +27,29 @@ export const thunkLoadUserPurchases = () => async (dispatch) => {
     return;
   }
 };
+export const thunkAddPurchase = (purchase) => async (dispatch) => {
+  const response = await fetch(`/api/user_purchases/new`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      user_id: purchase.userId,
+      vehicle_id: purchase.vehicleId,
+      first_name: purchase.firstName,
+      last_name: purchase.lastName,
+      delivery_address: purchase.deliveryAddress,
+      finalized: purchase.finalized,
+    }),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    return dispatch(addPurchase(data));
+  } else {
+    const errors = await response.json();
+    console.log({ errors });
+    return;
+  }
+};
 export const thunkEditPurchase = (purchase) => async (dispatch) => {
   const response = await fetch(`/api/user_purchases/${purchase.id}/edit`, {
     method: "POST",
@@ -40,8 +63,6 @@ export const thunkEditPurchase = (purchase) => async (dispatch) => {
       finalized: purchase.finalized,
     }),
   });
-
-  console.log({ response, purchase });
 
   if (response.ok) {
     const data = await response.json();

@@ -50,9 +50,10 @@ def new_user_purchases():
             first_name=form.data["first_name"],
             last_name=form.data["last_name"],
             delivery_address=form.data["delivery_address"],
+            finalized=form.data["finalized"],
         )
-        db.session(user_purchase)
-        db.session()
+        db.session.add(user_purchase)
+        db.session.commit()
         return user_purchase.to_dict()
     return form.errors, 400
 
@@ -61,9 +62,10 @@ def new_user_purchases():
 @login_required
 def edit_purchase_information(purchase_id):
     """
-    Edit Information for a purchase
+    Edit information for a pending purchase
     """
     current_purchase = UserBuy.query.get(purchase_id)
+
     form = PurchaseForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
@@ -78,3 +80,18 @@ def edit_purchase_information(purchase_id):
 
         return current_purchase.to_dict()
     return form.errors, 400
+
+
+@user_purchases_routes.route("<int:purchase_id>/delete")
+@login_required
+def delete_purchase(purchase_id):
+    """
+    Delete a pending purchase by id
+    """
+
+    purchase_to_delete = UserBuy.query.get(purchase_id)
+
+    db.session.delete(purchase_to_delete)
+    db.session.commit()
+
+    return {"message": "Pending Purchase successfully deleted"}
