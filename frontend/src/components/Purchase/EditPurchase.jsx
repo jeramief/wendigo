@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useModal } from "../../context/Modal";
@@ -15,8 +14,6 @@ const EditPurchase = ({ purchase }) => {
   const [deliveryAddress, setDeliveryAddress] = useState(
     purchase?.deliveryAddress
   );
-
-  useEffect(() => {});
 
   const handleSubmit = async (e) => {
     e.preventDefault();

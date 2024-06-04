@@ -32,7 +32,7 @@ class Vehicle(db.Model):
     sell = db.relationship("UserSell", back_populates="vehicle")
     purchase = db.relationship("UserBuy", back_populates="vehicle")
     comment = db.relationship("Review", back_populates="vehicle")
-    user = db.relationship("User", secondary="wishlist", back_populates="wishs")
+    # user = db.relationship("User", secondary="wishlist", back_populates="wishs")
 
     def to_dict(self):
         return {

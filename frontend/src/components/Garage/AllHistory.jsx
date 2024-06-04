@@ -1,21 +1,16 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { useModal } from "../../context/Modal";
 import OpenModalMenuItem from "../OpenModalButton/";
-import { CancelPurchase, EditPurchase } from "../Purchase";
+import { CancelPurchase, EditPurchase, FinalizePurchase } from "../Purchase";
 import { thunkLoadUserPurchases } from "../../redux/userPurchasesReducer";
 import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 import "./Garage.css";
 
 const AllHistory = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [isLoaded, setIsLoaded] = useState(false);
-  const { closeModal } = useModal();
-  const currentUser = useSelector((state) => state.session.user);
   const allHistoryObjects = useSelector((state) => state.userPurchasesState);
   const allHistory = Object.values(allHistoryObjects);
   const vehicles = useSelector((state) => state.vehiclesState);
@@ -36,6 +31,10 @@ const AllHistory = () => {
             purchase.finalized ? null : (
               <div key={purchase.id}>
                 <div className="all-history-purchases-details">
+                  <br />
+                  <span>
+                    <b>Vehicle: </b>
+                  </span>
                   <span>
                     {`${vehicles[purchase.vehicleId].year} 
                       ${vehicles[purchase.vehicleId].make} 
@@ -43,12 +42,12 @@ const AllHistory = () => {
                   </span>
                   <br />
                   <span>
-                    <b>Name:</b>
+                    <b>Name: </b>
                   </span>
                   <span>{`${purchase.firstName} ${purchase.lastName}`}</span>
                   <br />
                   <span>
-                    <b>Delivery Address:</b>
+                    <b>Delivery Address: </b>
                   </span>
                   <span>{purchase.deliveryAddress}</span>
                   <br />
@@ -63,7 +62,7 @@ const AllHistory = () => {
                   <OpenModalMenuItem
                     id="all-history-purchases-buttons-cancel"
                     buttonText="Finalize"
-                    modalComponent={<CancelPurchase purchase={purchase} />}
+                    modalComponent={<FinalizePurchase purchase={purchase} />}
                   />
                   <OpenModalMenuItem
                     id="all-history-purchases-buttons-finalize"
@@ -77,16 +76,24 @@ const AllHistory = () => {
       </div>
       <hr />
       <div className="all-history-sells">
-        <h2>Delivered Vehicl</h2>
+        <h2>Delivered Vehicles</h2>
         {isLoaded &&
           allHistory.map((purchase) =>
             purchase.finalized ? (
               <div key={purchase.id}>
                 <div className="all-history-purchases-details">
+                  <br />
+                  <span>
+                    <b>Vehicle: </b>
+                  </span>{" "}
                   <span>
                     {`${vehicles[purchase.vehicleId].year} 
                   ${vehicles[purchase.vehicleId].make} 
                   ${vehicles[purchase.vehicleId].model}`}
+                  </span>
+                  <br />
+                  <span>
+                    <b>Price: </b>
                   </span>
                   <span>{vehicles[purchase.vehicleId].price}</span>
                 </div>

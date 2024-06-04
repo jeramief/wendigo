@@ -40,6 +40,6 @@ def undo_user_purchases():
             f"TRUNCATE table {SCHEMA}.vehicles RESTART IDENTITY CASCADE;"
         )
     else:
-        db.session.execute(text("DELETE FROM vehicle"))
+        db.session.execute(text("DELETE FROM user_buys"))
 
     db.session.commit()
