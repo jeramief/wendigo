@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
     purchase = db.relationship("UserBuy", back_populates="buyer")
     sell = db.relationship("UserSell", back_populates="seller")
     comment = db.relationship("Review", back_populates="commenter")
-    wishs = db.relationship("Vehicle", secondary="wishlists", back_populates="user")
+    # wishs = db.relationship("Vehicle", secondary="wishlists", back_populates="user")
 
     @property
     def password(self):

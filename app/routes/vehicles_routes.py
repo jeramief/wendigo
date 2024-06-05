@@ -12,7 +12,7 @@ def all_vehicles_for_sell():
     Query for all vehicles available for sell
     """
 
-    vehicles_for_sell = Vehicle.query.filter_by(is_sold=False, is_for_sell=True)
+    vehicles_for_sell = Vehicle.query.filter_by(is_sold=False, is_for_sell=True).all()
 
     return [vehicle.to_dict() for vehicle in vehicles_for_sell]
 

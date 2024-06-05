@@ -6,8 +6,6 @@ const CancelPurchase = ({ purchase }) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
-  console.log(purchase);
-
   const deletePurchase = async (e) => {
     e.preventDefault();
 

@@ -16,9 +16,10 @@ class Review(db.Model):
     vehicle_id = db.Column(
         db.Integer, db.ForeignKey(add_prefix_for_prod("vehicles.id")), nullable=False
     )
-    vehicle = db.Column(db.String(100), nullable=False)
-    comment = db.Column(db.String(100), nullable=False)
-    verified_owner = db.Column(db.Boolean, nullable=False)
+    user_name = db.Column(db.String(40), nullable=False)
+    vehicle_type = db.Column(db.String(100), nullable=False)
+    comment_text = db.Column(db.String(100), nullable=False)
+    # verified_owner = db.Column(db.Boolean, nullable=False)
     user_state = db.Column(db.String(2), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
@@ -31,9 +32,10 @@ class Review(db.Model):
             "id": self.id,
             "userId": self.user_id,
             "vehicleId": self.vehicle_id,
-            "vehicle": self.vehicle,
-            "comment": self.comment,
-            "verifiedOwner": self.verified_owner,
+            "userName": self.user_name,
+            "vehicleType": self.vehicle_type,
+            "commentText": self.comment_text,
+            # "verifiedOwner": self.verified_owner,
             "userState": self.user_state,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,

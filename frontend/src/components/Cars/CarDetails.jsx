@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
+import OpenModalButton from "../OpenModalButton";
+import ReviewsModal from "../Reviews/ReviewsModal";
 import ShowImage from "../ShowImage";
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import { Purchase } from "../Purchase";
 
 const CarDetails = () => {
@@ -29,12 +30,16 @@ const CarDetails = () => {
           </div>
           <div className="car-details-and-reviews-buttons">
             <button>VEHICLE DETAILS</button>
-            <button>REVIEWS</button>
+            <OpenModalButton
+              id="car-details-container-reviews-button"
+              buttonText="Reviews"
+              modalComponent={<ReviewsModal car={car} />}
+            />
           </div>
           <div className="car-details-purchase-container">
-            <OpenModalMenuItem
+            <OpenModalButton
               id="car-details-purchase-button"
-              itemText="Purchase"
+              buttonText="Purchase"
               modalComponent={<Purchase car={car} />}
             />
           </div>

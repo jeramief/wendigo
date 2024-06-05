@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import OpenModalMenuItem from "../OpenModalButton/";
+import OpenModalButton from "../OpenModalButton/";
 import { CancelPurchase, EditPurchase, FinalizePurchase } from "../Purchase";
 import { thunkLoadUserPurchases } from "../../redux/userPurchasesReducer";
 import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
@@ -54,17 +54,17 @@ const AllHistory = () => {
                   <span>{`$${vehicles[purchase.vehicleId].price}`}</span>
                 </div>
                 <div className="all-history-purchases-buttons">
-                  <OpenModalMenuItem
+                  <OpenModalButton
                     id="all-history-purchases-buttons-edit"
                     buttonText="Edit"
                     modalComponent={<EditPurchase purchase={purchase} />}
                   />
-                  <OpenModalMenuItem
+                  <OpenModalButton
                     id="all-history-purchases-buttons-cancel"
                     buttonText="Finalize"
                     modalComponent={<FinalizePurchase purchase={purchase} />}
                   />
-                  <OpenModalMenuItem
+                  <OpenModalButton
                     id="all-history-purchases-buttons-finalize"
                     buttonText="Cancel"
                     modalComponent={<CancelPurchase purchase={purchase} />}

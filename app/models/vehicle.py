@@ -24,7 +24,7 @@ class Vehicle(db.Model):
     # fuel = db.Column(db.String(20), nullable=False)
     drivetrain = db.Column(db.String(20), nullable=False)
     color = db.Column(db.String(50), nullable=False)
-    vin = db.Column(db.String(17), nullable=False, unique=True)
+    vin = db.Column(db.String(17), nullable=False)
     image = db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
@@ -32,7 +32,7 @@ class Vehicle(db.Model):
     sell = db.relationship("UserSell", back_populates="vehicle")
     purchase = db.relationship("UserBuy", back_populates="vehicle")
     comment = db.relationship("Review", back_populates="vehicle")
-    user = db.relationship("User", secondary="wishlists", back_populates="wishs")
+    # user = db.relationship("User", secondary="wishlists", back_populates="wishs")
 
     def to_dict(self):
         return {

@@ -21,7 +21,7 @@ def all_user_purchases():
 
 @user_purchases_routes.route("/<int:purchase_id>")
 @login_required
-def get_user_purchases(purchase_id):
+def get_user_purchase(purchase_id):
     """
     Query for a single purchase's details
     """
@@ -35,7 +35,7 @@ def get_user_purchases(purchase_id):
 
 @user_purchases_routes.route("/new", methods=["POST"])
 @login_required
-def new_user_purchases():
+def new_user_purchase():
     """
     Add information for a new purchase
     """
@@ -82,7 +82,7 @@ def edit_purchase_information(purchase_id):
     return form.errors, 400
 
 
-@user_purchases_routes.route("<int:purchase_id>/delete")
+@user_purchases_routes.route("/<int:purchase_id>/delete")
 @login_required
 def delete_purchase(purchase_id):
     """

@@ -55,8 +55,10 @@ def upgrade():
         sa.Column("id", sa.Integer(), nullable=False),
         sa.Column("user_id", sa.Integer(), nullable=False),
         sa.Column("vehicle_id", sa.Integer(), nullable=False),
-        sa.Column("comment", sa.String(length=100), nullable=False),
-        sa.Column("verified_owner", sa.Boolean(), nullable=False),
+        sa.Column("user_name", sa.String(), nullable=False),
+        sa.Column("vehicle_type", sa.String(), nullable=False),
+        sa.Column("comment_text", sa.String(length=100), nullable=False),
+        # sa.Column("verified_owner", sa.Boolean(), nullable=False),
         sa.Column("user_state", sa.String(length=2), nullable=False),
         sa.Column("created_at", sa.DateTime(), nullable=True),
         sa.Column("updated_at", sa.DateTime(), nullable=True),
@@ -110,20 +112,20 @@ def upgrade():
         ),
         sa.PrimaryKeyConstraint("id"),
     )
-    op.create_table(
-        "wishlists",
-        sa.Column("user_id", sa.Integer(), nullable=False),
-        sa.Column("vehicle_id", sa.Integer(), nullable=False),
-        sa.ForeignKeyConstraint(
-            ["user_id"],
-            ["users.id"],
-        ),
-        sa.ForeignKeyConstraint(
-            ["vehicle_id"],
-            ["vehicles.id"],
-        ),
-        sa.PrimaryKeyConstraint("user_id", "vehicle_id"),
-    )
+    # op.create_table(
+    #     "wishlist",
+    #     sa.Column("user_id", sa.Integer(), nullable=False),
+    #     sa.Column("vehicle_id", sa.Integer(), nullable=False),
+    #     sa.ForeignKeyConstraint(
+    #         ["user_id"],
+    #         ["users.id"],
+    #     ),
+    #     sa.ForeignKeyConstraint(
+    #         ["vehicle_id"],
+    #         ["vehicles.id"],
+    #     ),
+    #     sa.PrimaryKeyConstraint("user_id", "vehicle_id"),
+    # )
     # ### end Alembic commands ###
 
 
