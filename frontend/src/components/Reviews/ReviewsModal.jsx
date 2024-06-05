@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { useModal } from "../../context/Modal";
 import { thunkAddReview, thunkLoadReviews } from "../../redux/reviewsReducer";
 import ReviewCard from "./ReviewCard";
 
@@ -11,7 +10,6 @@ const ReviewsModal = ({ car }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [comment, setComment] = useState("");
 
-  const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviewsState));
 

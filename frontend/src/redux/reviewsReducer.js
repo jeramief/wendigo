@@ -91,7 +91,7 @@ const reviewsReducer = (state = initialState, action) => {
     }
     case ADD_REVIEW: {
       const newState = { ...state };
-      newState[action.review.id] = action.purchase;
+      newState[action.review.id] = action.review;
 
       return newState;
     }
