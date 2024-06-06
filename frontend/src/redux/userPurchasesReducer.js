@@ -1,6 +1,7 @@
 const LOAD_PURCHASES = "purchases/loadPurchases";
 const ADD_PURCHASE = "purchases/addPurchase";
 const DELETE_PURCHASE = "purchase/deletePurchase";
+const CLEAR_PURCHASES = "purchases/clearPurchases";
 
 const loadPurchases = (purchases) => ({
   type: LOAD_PURCHASES,
@@ -13,6 +14,9 @@ const addPurchase = (purchase) => ({
 const deletePurchase = (purchaseId) => ({
   type: DELETE_PURCHASE,
   purchaseId,
+});
+export const clearPurchases = () => ({
+  type: CLEAR_PURCHASES,
 });
 
 export const thunkLoadUserPurchases = () => async (dispatch) => {
@@ -106,6 +110,9 @@ const userPurchasesReducer = (state = initialState, action) => {
       delete newState[action.purchaseId];
 
       return newState;
+    }
+    case CLEAR_PURCHASES: {
+      return initialState;
     }
     default: {
       return state;
