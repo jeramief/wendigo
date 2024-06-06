@@ -1,22 +1,34 @@
 import { NavLink } from "react-router-dom";
+
 import ProfileButton from "./ProfileButton";
+import logo from "/images/logo.svg";
 import "./Navigation.css";
 
 function Navigation() {
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/cars">SEARCH</NavLink>
-        <NavLink to="/sell-my-car">SELL</NavLink>
-        <NavLink to="/garage">MY GARAGE</NavLink>
-      </li>
+    <nav className="nav">
+      <div className="nav-links-container">
+        <NavLink className="nav-links logo-container" to="/">
+          <img className="logo" src={logo} alt="Home" />
+        </NavLink>
+        <NavLink className="nav-links" to="/cars">
+          SEARCH
+        </NavLink>
+        <NavLink className="nav-links" to="/sell-my-car">
+          SELL
+        </NavLink>
+        <NavLink className="nav-links" to="/garage">
+          MY GARAGE
+        </NavLink>
+      </div>
 
-      <li>
-        <NavLink to="/wishlist">Wishlist</NavLink>
+      <div className="nav-links-container">
+        <NavLink className="nav-links" to="/wishlist">
+          Wishlist
+        </NavLink>
         <ProfileButton />
-      </li>
-    </ul>
+      </div>
+    </nav>
   );
 }
 

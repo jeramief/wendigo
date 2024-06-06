@@ -53,7 +53,7 @@ function ProfileButton() {
           {user ? (
             <>
               <li>{`${user.firstName} ${user.lastName[0]}`}</li>
-              <li>{user.email}</li>
+              {/* <li>{user.email}</li> */}
               <li>
                 <button className="profile-buttons" onClick={logout}>
                   Log Out
