@@ -1,0 +1,19 @@
+.login-form-modal-container {
+  padding: 10px 30px 30px;
+}
+
+.login-form-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.login-form-modal-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-button {
+  width: 50px;
+}

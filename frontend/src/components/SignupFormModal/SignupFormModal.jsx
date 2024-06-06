@@ -60,11 +60,11 @@ function SignupFormModal() {
   };
 
   return (
-    <>
+    <div className="signup-form-modal-container">
       <h1>Sign Up</h1>
       {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form className="signup-form-modal-form" onSubmit={handleSubmit}>
+        <label className="signup-form-modal-inputs">
           Email
           <input
             type="text"
@@ -74,7 +74,7 @@ function SignupFormModal() {
           />
         </label>
         {errors.email && <p>{errors.email}</p>}
-        <label>
+        <label className="signup-form-modal-inputs">
           First Name
           <input
             type="text"
@@ -84,7 +84,7 @@ function SignupFormModal() {
           />
         </label>
         {errors.firstName && <p>{errors.firstName}</p>}
-        <label>
+        <label className="signup-form-modal-inputs">
           Last Name
           <input
             type="text"
@@ -94,7 +94,7 @@ function SignupFormModal() {
           />
         </label>
         {errors.lastName && <p>{errors.lastName}</p>}
-        <label>
+        <label className="signup-form-modal-inputs">
           State
           <select
             id="userState"
@@ -171,7 +171,7 @@ function SignupFormModal() {
           </select>
         </label>
         {errors.lastName && <p>{errors.lastName}</p>}
-        <label>
+        <label className="signup-form-modal-inputs">
           Password
           <input
             type="password"
@@ -181,7 +181,7 @@ function SignupFormModal() {
           />
         </label>
         {errors.password && <p>{errors.password}</p>}
-        <label>
+        <label className="signup-form-modal-inputs">
           Confirm Password
           <input
             type="password"
@@ -191,7 +191,7 @@ function SignupFormModal() {
           />
         </label>
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button className="profile-buttons" type="submit">
+        <button className="profile-buttons signup-button" type="submit">
           Sign Up
         </button>
       </form>
@@ -200,7 +200,7 @@ function SignupFormModal() {
           Log In As Demo
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

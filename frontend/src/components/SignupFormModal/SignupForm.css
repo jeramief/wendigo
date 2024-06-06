@@ -1,0 +1,19 @@
+.signup-form-modal-container {
+  padding: 10px 80px 30px;
+}
+
+.signup-form-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.signup-form-modal-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-button {
+  width: fit-content;
+}
