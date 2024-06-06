@@ -46,7 +46,7 @@
 .car-card {
   cursor: pointer;
   height: 300px;
-  flex: 250px 250px;
+  flex: 250px;
   border: 2px solid rgba(0, 0, 0, 0.352);
   border-radius: 10px;
 }
