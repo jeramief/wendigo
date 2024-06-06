@@ -38,7 +38,12 @@ export const thunkAddReview = (review) => async (dispatch) => {
     }),
   })
     .then((response) => response.json())
-    .then((data) => dispatch(addReview(data)))
+    .then((data) => {
+      if (data.comment_text) {
+        throw new Error(data.comment_text);
+      }
+      dispatch(addReview(data));
+    })
     .catch((errors) => {
       console.log({ errors });
       return errors;

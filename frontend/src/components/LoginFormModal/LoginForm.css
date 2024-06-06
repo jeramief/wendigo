@@ -1,17 +1,23 @@
 .login-form-modal-container {
+  width: 390px;
   padding: 10px 30px 30px;
 }
 
 .login-form-modal-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   margin-bottom: 5px;
 }
 
 .login-form-modal-inputs {
+  height: 80px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.errors {
+  color: rgb(209, 48, 48);
 }
 
 .login-button {

@@ -42,7 +42,7 @@ def new_review():
         db.session.commit()
 
         return review.to_dict()
-    return form.errors, 400
+    return form.errors, 401
 
 
 @reviews_routes.route("/<int:review_id>/edit", methods=["POST"])
@@ -62,7 +62,7 @@ def get_vehicle_review(review_id):
         db.session.commit()
 
         return current_review.to_dict()
-    return form.errors, 400
+    return form.errors
 
 
 @reviews_routes.route("/<int:review_id>/delete")

@@ -1,19 +1,29 @@
 .signup-form-modal-container {
+  width: 390px;
   padding: 10px 80px 30px;
 }
 
 .signup-form-modal-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   margin-bottom: 5px;
 }
 
 .signup-form-modal-inputs {
+  height: 80px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.signup-form-modal-inputs p {
+  margin-top: 0;
 }
 
 .signup-button {
   width: fit-content;
+}
+
+.errors {
+  color: rgb(209, 48, 48);
 }

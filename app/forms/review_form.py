@@ -10,7 +10,7 @@ class ReviewForm(FlaskForm):
         "User Name", validators=[DataRequired(), Length(min=2, max=40)]
     )
     comment_text = StringField(
-        "Comment", validators=[DataRequired(), Length(min=0, max=100)]
+        "Comment", validators=[DataRequired(), Length(min=4, max=100)]
     )
     # verified_owner=BooleanField('Verified Owner',validators=[DataRequired()])
     user_state = StringField(
