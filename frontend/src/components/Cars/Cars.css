@@ -3,38 +3,73 @@
   display: flex;
   flex-basis: 1 3;
   gap: 5%;
-  border: 3px solid red;
 }
 
 .for-sell-filter-panel {
+  position: fixed;
   height: 500px;
   width: 20%;
+  min-width: 250px;
   border: 1px solid black;
 }
 
 .cars {
   width: 100%;
-  border: 3px solid red;
+  margin: 30px auto 20px 300px;
 }
 
 .for-sell-list-search-container {
-  /* width: 100%; */
-  border: 3px solid red;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .for-sell-list-search {
-  /* width: 100%; */
+  height: 45px;
+  width: 100%;
+  background-color: rgba(95, 95, 95, 0.13);
+  border: 2px solid rgba(95, 95, 95, 0.352);
+  border-radius: 7px;
+}
+
+.for-sell-list-search:focus {
+  outline: none;
 }
 
 .cars-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 
 .car-card {
   cursor: pointer;
-  border: 2px solid rgba(0, 0, 0, 0.274);
+  height: 300px;
+  flex: 250px 250px;
+  border: 2px solid rgba(0, 0, 0, 0.352);
   border-radius: 10px;
+}
+
+.vehicle-card-image {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.352);
+  border-radius: 10px;
+}
+
+.vehicle-card-image img {
+  height: 100px;
+  margin: 0 -100%;
+  /* border-radius: 10px; */
+}
+
+.car-card-content {
+  padding: 10px;
+}
+
+.car-card-price {
+  margin-top: 75px;
 }
