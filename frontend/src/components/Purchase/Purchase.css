@@ -1,6 +1,27 @@
 .purchase-modal-container {
-  position: absolute;
-  height: 300px;
-  margin-right: 0;
-  background-color: black;
+  width: 390px;
+  padding: 10px 30px 30px;
+}
+
+.purchase-modal-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.purchase-modal-form-input {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.purchase-modal-button {
+  cursor: pointer;
+  text-align: center;
+  width: 70px;
+  background-color: #cb594d;
+  border: none;
+  border-radius: 15px;
+  margin: 2px;
 }

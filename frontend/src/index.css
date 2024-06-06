@@ -2,3 +2,7 @@
 * {
   box-sizing: border-box;
 }
+
+.errors {
+  color: rgb(209, 48, 48);
+}

@@ -6,9 +6,13 @@ from app.routes.AWS_helpers import ALLOWED_EXTENSIONS
 
 class PurchaseForm(FlaskForm):
     vehicle_id = IntegerField("Vehicle", validators=[DataRequired()])
-    first_name = StringField("First Name", validators=[DataRequired(), Length(max=20)])
-    last_name = StringField("Last Name", validators=[DataRequired(), Length(max=20)])
+    first_name = StringField(
+        "First Name", validators=[DataRequired(), Length(min=2, max=20)]
+    )
+    last_name = StringField(
+        "Last Name", validators=[DataRequired(), Length(min=2, max=20)]
+    )
     delivery_address = StringField(
-        "Delivery Address", validators=[DataRequired(), Length(max=100)]
+        "Delivery Address", validators=[DataRequired(), Length(min=5, max=100)]
     )
     finalized = BooleanField("Finalized")
