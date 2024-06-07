@@ -41,7 +41,7 @@ const AllHistory = () => {
           Pending Purchases
         </h2>
         {isLoaded &&
-        allHistory.find((purchase) => purchase.finalized).length ? null : (
+        allHistory.find((purchase) => !purchase.finalized) ? null : (
           <h3>No Pending Purchases</h3>
         )}
         {isLoaded &&
@@ -119,12 +119,21 @@ const AllHistory = () => {
           )}
       </div>
       <hr />
-      <div className="all-history-sells">
-        <h2>Delivered Vehicles</h2>
+      <div className="all-history-delivered-vehicles">
+        <h2 className="all-history-delivered-vehicles-title">
+          Delivered Vehicles
+        </h2>
         {isLoaded &&
           allHistory.map((purchase) =>
             purchase.finalized ? (
-              <div key={purchase.id}>
+              <div
+                className="all-history-delivered-vehicles-card"
+                key={purchase.id}
+              >
+                <ShowImage
+                  url={vehicles[purchase.vehicleId].image}
+                  type="all-history-pending-purchases-card"
+                />
                 <div className="all-history-purchases-details">
                   <br />
                   <span>
