@@ -5,6 +5,7 @@ import OpenModalButton from "../OpenModalButton/";
 import { CancelPurchase, EditPurchase, FinalizePurchase } from "../Purchase";
 import { thunkLoadUserPurchases } from "../../redux/userPurchasesReducer";
 import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
+import ShowImage from "../ShowImage";
 import "./Garage.css";
 
 const AllHistory = () => {
@@ -22,15 +23,58 @@ const AllHistory = () => {
       .catch((error) => console.log(error));
   }, [dispatch]);
 
+  const priceFormat = (price) => {
+    const priceArray = String(price).split("");
+    const priceFormatted = [];
+
+    for (let i = priceArray.lenth - 3; i > 1; i - 3) {
+      priceFormatted.push(priceArray.slice(i - 3, i));
+    }
+
+    return priceFormatted.join("");
+  };
+
   return (
     <div className="all-history">
-      <div className="all-history-purchases">
-        <h2>Pending Purchases</h2>
+      <div className="all-history-pending-purchases">
+        <h2 className="all-history-pending-purchases-title">
+          Pending Purchases
+        </h2>
+        {isLoaded &&
+        allHistory.find((purchase) => purchase.finalized).length ? null : (
+          <h3>No Pending Purchases</h3>
+        )}
         {isLoaded &&
           allHistory.map((purchase) =>
             purchase.finalized ? null : (
-              <div key={purchase.id}>
-                <div className="all-history-purchases-details">
+              <div
+                className="all-history-pending-purchases-card"
+                key={purchase.id}
+              >
+                <div className="all-history-pending-purchases-card-top">
+                  <ShowImage
+                    url={vehicles[purchase.vehicleId].image}
+                    type="all-history-pending-purchases-card"
+                  />
+                  <div className="all-history-pending-purchases-card-buttons">
+                    <OpenModalButton
+                      setClass="all-history-pending-purchases-buttons-finalize"
+                      buttonText="Finalize"
+                      modalComponent={<FinalizePurchase purchase={purchase} />}
+                    />
+                    <OpenModalButton
+                      setClass="all-history-pending-purchases-buttons-edit"
+                      buttonText="Edit"
+                      modalComponent={<EditPurchase purchase={purchase} />}
+                    />
+                    <OpenModalButton
+                      setClass="all-history-pending-purchases-buttons-cancel"
+                      buttonText="Cancel"
+                      modalComponent={<CancelPurchase purchase={purchase} />}
+                    />
+                  </div>
+                </div>
+                <div className="all-history-pending-purchases-details">
                   <br />
                   <span>
                     <b>Vehicle: </b>
@@ -51,24 +95,24 @@ const AllHistory = () => {
                   </span>
                   <span>{purchase.deliveryAddress}</span>
                   <br />
-                  <span>{`$${vehicles[purchase.vehicleId].price}`}</span>
-                </div>
-                <div className="all-history-purchases-buttons">
-                  <OpenModalButton
-                    id="all-history-purchases-buttons-edit"
-                    buttonText="Edit"
-                    modalComponent={<EditPurchase purchase={purchase} />}
-                  />
-                  <OpenModalButton
-                    id="all-history-purchases-buttons-cancel"
-                    buttonText="Finalize"
-                    modalComponent={<FinalizePurchase purchase={purchase} />}
-                  />
-                  <OpenModalButton
-                    id="all-history-purchases-buttons-finalize"
-                    buttonText="Cancel"
-                    modalComponent={<CancelPurchase purchase={purchase} />}
-                  />
+                  <span>
+                    <b>Deposit: </b>
+                    {`$${
+                      String(vehicles[purchase.vehicleId].price).length === 6
+                        ? String(vehicles[purchase.vehicleId].price).slice(
+                            0,
+                            3
+                          ) +
+                          "," +
+                          String(vehicles[purchase.vehicleId].price).slice(3)
+                        : String(vehicles[purchase.vehicleId].price).slice(
+                            0,
+                            2
+                          ) +
+                          "," +
+                          String(vehicles[purchase.vehicleId].price).slice(2)
+                    }`}
+                  </span>
                 </div>
               </div>
             )

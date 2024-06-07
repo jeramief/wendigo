@@ -1,0 +1,77 @@
+/********! PENDING PURCHASES !*********/
+.all-history {
+  padding: 0 30px;
+}
+
+.all-history-pending-purchases {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.all-history-pending-purchases-title {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.all-history-pending-purchases-card {
+  align-self: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.352);
+  border-radius: 15px;
+}
+
+.all-history-pending-purchases-card-top {
+  display: flex;
+}
+
+.all-history-pending-purchases-card-buttons {
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.all-history-pending-purchases-card-buttons button {
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  background-color: #cb594d;
+  border: none;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+.all-history-pending-purchases-buttons-finalize {
+  flex-basis: 100%;
+}
+
+.all-history-pending-purchases-buttons-edit,
+.all-history-pending-purchases-buttons-cancel {
+  flex-basis: 45%;
+}
+
+.all-history-pending-purchases-card-image {
+  width: 50%;
+  height: 100px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.all-history-pending-purchases-card-image img {
+  height: 100px;
+  margin: 0 -100%;
+}
+
+.all-history-pending-purchases-details {
+  margin-left: 30px;
+}
+/********! PENDING PURCHASES !*********/
+
+/********! DELIVERED VEHICLES !*********/
+
+/********! DELIVERED VEHICLES !*********/

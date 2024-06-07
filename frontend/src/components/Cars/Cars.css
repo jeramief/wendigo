@@ -142,9 +142,13 @@
 }
 
 .car-details-purchase-button {
-  background-color: #ffcd29;
-  padding: 5px 15px;
-  border: 1px solid #a98200;
-  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: #cb594d;
+  border: none;
+  border-radius: 15px;
+  margin: 2px;
 }
 /******** CAR DETAILS *********/
