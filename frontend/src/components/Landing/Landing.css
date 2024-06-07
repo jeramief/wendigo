@@ -30,6 +30,7 @@
   height: 30px;
   border: none;
   border-radius: 54px;
+  margin-left: 10px;
 }
 
 .landing-page-search:focus {

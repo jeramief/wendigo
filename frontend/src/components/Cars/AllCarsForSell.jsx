@@ -20,7 +20,7 @@ const AllCarsForSell = () => {
   return (
     <>
       <main className="cars-for-sell">
-        <div className="for-sell-filter-panel"></div>
+        {/* <div className="for-sell-filter-panel"></div> */}
         <div className="cars">
           <div className="for-sell-list-search-container">
             <input

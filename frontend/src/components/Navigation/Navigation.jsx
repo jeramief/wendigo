@@ -14,18 +14,18 @@ function Navigation() {
         <NavLink className="nav-links" to="/cars">
           SEARCH
         </NavLink>
-        <NavLink className="nav-links" to="/sell-my-car">
+        {/* <NavLink className="nav-links" to="/sell-my-car">
           SELL
-        </NavLink>
+        </NavLink> */}
         <NavLink className="nav-links" to="/garage">
           MY GARAGE
         </NavLink>
       </div>
 
       <div className="nav-links-container">
-        <NavLink className="nav-links" to="/wishlist">
+        {/* <NavLink className="nav-links" to="/wishlist">
           Wishlist
-        </NavLink>
+        </NavLink> */}
         <ProfileButton />
       </div>
     </nav>

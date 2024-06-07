@@ -12,13 +12,23 @@ const CarDetails = () => {
   const dispatch = useDispatch();
   const { carId } = useParams();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [price, setPrice] = useState("");
   // const currentUser = useSelector((state) => state.session.user);
   const car = useSelector((state) => state.vehiclesState)[carId];
   // const wishlist = useSelector((state) => state.wishlistState);
 
   useEffect(() => {
-    dispatch(thunkLoadVehiclesForSell()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+    dispatch(thunkLoadVehiclesForSell())
+      .then(() =>
+        setPrice(
+          Intl.NumberFormat("en-us", {
+            style: "currency",
+            currency: "USD",
+          }).format(car?.price)
+        )
+      )
+      .then(() => setIsLoaded(true));
+  }, [dispatch, car?.price]);
 
   return (
     <div className="car-details-container">
@@ -26,7 +36,8 @@ const CarDetails = () => {
         <div className="car-details-links">
           <div className="car-details-description">
             <h2 className="car-details-name">{`${car.year} ${car.make} ${car.model}`}</h2>
-            <h3 className="car-details-mileage">{car.mileage}</h3>
+            <h3 className="car-details-mileage">Mileage: {car.mileage}</h3>
+            <h3>Price: {price.slice(0, price.length - 3)}</h3>
           </div>
           <div className="car-details-and-reviews-buttons">
             <button>VEHICLE DETAILS</button>
@@ -44,7 +55,12 @@ const CarDetails = () => {
             />
           </div>
           <div className="car-details-wishlist-container">
-            <button className="car-details-wishlist-button">Wishlist</button>
+            <button
+              onClick={() => window.alert("Wishlist feature coming soon")}
+              className="car-details-wishlist-button"
+            >
+              Add to Wishlist
+            </button>
           </div>
         </div>
       )}

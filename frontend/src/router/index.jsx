@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sell-my-car",
-        element: <h1>Sell!</h1>,
+        element: <h1>Sell Feature coming soon!</h1>,
       },
       {
         path: "/garage",
@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/garage/sells",
-        element: <h1>Sells!</h1>,
+        element: <h1>Sells List coming soon!</h1>,
       },
       {
         path: "/garage/sells/:sellId",
@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/wishlist",
-        element: <h1>Wishlist!</h1>,
+        element: <h1>Wishlist coming soon!</h1>,
       },
     ],
   },
