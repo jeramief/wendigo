@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #ffcd29;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 .landing-page-container-h1 {

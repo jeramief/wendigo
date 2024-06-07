@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
 .errors {
   color: rgb(209, 48, 48);
   margin-top: 0;

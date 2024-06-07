@@ -33,71 +33,55 @@ const CarDetails = () => {
   return (
     <div className="car-details-container">
       {isLoaded && (
-        <div className="car-details-links">
-          <div className="car-details-description">
-            <h2 className="car-details-name">{`${car.year} ${car.make} ${car.model}`}</h2>
-            <h3 className="car-details-mileage">Mileage: {car.mileage}</h3>
+        <div className="car-details">
+          {/* <div className="car-details-wishlist-container">
+      <button
+        onClick={() => window.alert("Wishlist feature coming soon")}
+        className="car-details-wishlist-button"
+      >
+        Add to Wishlist
+      </button>
+    </div> */}
+          <h2 className="car-details-name">{`${car.year} ${car.make} ${car.model}`}</h2>
+          <ShowImage url={car.image} type="car-details" />
+          <h3 className="car-details-vehicle-details-title">VEHICLE DETAILS</h3>
+          <div className="car-details-detail-container">
+            <span className="car-details-detail">MPG: {car.mpg}</span>
+            <span className="car-details-detail">
+              FUEL: {car.fuel || "Not Available"}
+            </span>
+            <span className="car-details-detail">COLOR: {car.color}</span>
+            <span className="car-details-detail">
+              DRIVETRAIN: {car.drivetrain}
+            </span>
+            <span className="car-details-detail">
+              ENGINE: {car.engine || "Not Available"}
+            </span>
+            <span className="car-details-detail">
+              TRANSMISSION: {car.transmission}
+            </span>
+            <span className="car-details-detail">MILEAGE: {car.mileage}</span>
+          </div>
+          <div className="car-details-purchase">
             <h3>Price: {price.slice(0, price.length - 3)}</h3>
-          </div>
-          <div className="car-details-and-reviews-buttons">
-            <button>VEHICLE DETAILS</button>
-            <OpenModalButton
-              id="car-details-container-reviews-button"
-              buttonText="Reviews"
-              modalComponent={<ReviewsModal car={car} />}
-            />
-          </div>
-          <div className="car-details-purchase-container">
-            <OpenModalButton
-              id="car-details-purchase-button"
-              buttonText="Purchase"
-              modalComponent={<Purchase car={car} />}
-            />
-          </div>
-          <div className="car-details-wishlist-container">
-            <button
-              onClick={() => window.alert("Wishlist feature coming soon")}
-              className="car-details-wishlist-button"
-            >
-              Add to Wishlist
-            </button>
-          </div>
-        </div>
-      )}
-      <ShowImage url={car?.image} type="car-detail" style={{ width: "100%" }} />
-      {isLoaded && (
-        <div className="car-details-details-container">
-          <h3>VEHICLE DETAILS</h3>
-          <div className="car-details-list">
-            <div className="car-details-detail">
-              <h4>MPG</h4>
-              <span>{car.mpg}</span>
-            </div>
-            <div className="car-details-detail">
-              <h4>FUEL</h4>
-              <span>{car.fuel || "Not Available"}</span>
-            </div>
-            <div className="car-details-detail">
-              <h4>COLOR</h4>
-              <span>{car.color}</span>
-            </div>
-            <div className="car-details-detail">
-              <h4>DRIVETRAIN</h4>
-              <span>{car.drivetrain}</span>
-            </div>
-            <div className="car-details-detail">
-              <h4>ENGINE</h4>
-              <span>{car.engine || "Not Available"}</span>
-            </div>
-            <div className="car-details-detail">
-              <h4>TRANSMISSION</h4>
-              <span>{car.transmission}</span>
+            <div className="car-details-purchase-container">
+              <OpenModalButton
+                setClass="car-details-purchase-button"
+                buttonText="Purchase"
+                modalComponent={<Purchase car={car} />}
+              />
             </div>
           </div>
         </div>
       )}
       {car && (
         <div className="car-details-review-carousel">
+          <div className="car-details-and-reviews-buttons"></div>
+          <OpenModalButton
+            id="car-details-container-reviews-button"
+            buttonText="Reviews"
+            modalComponent={<ReviewsModal car={car} />}
+          />
           <div className="car-details-review-carousel-reveiws-container">
             <button className="car-details-review-carousel-left-arrow">
               left
