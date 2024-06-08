@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 import OpenModalButton from "../OpenModalButton";
-import ReviewsModal from "../Reviews/ReviewsModal";
 import ShowImage from "../ShowImage";
 import { Purchase } from "../Purchase";
+import ReviewsCarousel from "../Reviews/ReviewsCarousel";
 
 const CarDetails = () => {
   const dispatch = useDispatch();
@@ -74,24 +74,7 @@ const CarDetails = () => {
           </div>
         </div>
       )}
-      {car && (
-        <div className="car-details-review-carousel">
-          <OpenModalButton
-            setClass="car-details-review-button"
-            buttonText="Reviews"
-            modalComponent={<ReviewsModal car={car} />}
-          />
-          <div className="car-details-review-carousel-reveiws-container">
-            <button className="car-details-review-carousel-left-arrow">
-              left
-            </button>
-            <div className="car-details-review-carousel-reviews"></div>
-            <button className="car-details-review-carousel-right-arrow">
-              right
-            </button>
-          </div>
-        </div>
-      )}
+      <ReviewsCarousel car={car} />
     </div>
   );
 };

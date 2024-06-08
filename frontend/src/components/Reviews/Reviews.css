@@ -76,3 +76,51 @@
   margin: 2px;
 }
 /*********** DELETE REVIEW ***********/
+
+/*********** REVIEWS CAROUSEL ***********/
+.review-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.review-button {
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: #cb594d;
+  border: 1px solid #a82c1f;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+.review-carousel-reveiws-container {
+  display: flex;
+  align-items: center;
+}
+
+.review-carousel-reviews {
+  background-color: #019b98;
+  height: 100px;
+  width: 500px;
+}
+
+.review-carousel-left-arrow,
+.review-carousel-right-arrow {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+}
+
+.review-carousel-left-arrow {
+  left: 25px;
+}
+
+.review-carousel-right-arrow {
+  right: 25px;
+}
+/*********** REVIEWS CAROUSEL ***********/
