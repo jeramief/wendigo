@@ -42,22 +42,22 @@ function SignupFormModal() {
       closeModal();
     }
   };
-  const demoLogin = async (e) => {
-    e.preventDefault();
+  // const demoLogin = async (e) => {
+  //   e.preventDefault();
 
-    const serverResponse = await dispatch(
-      thunkLogin({
-        email: "demo@aa.io",
-        password: "password",
-      })
-    );
+  //   const serverResponse = await dispatch(
+  //     thunkLogin({
+  //       email: "demo@aa.io",
+  //       password: "password",
+  //     })
+  //   );
 
-    if (serverResponse) {
-      setErrors(serverResponse);
-    } else {
-      closeModal();
-    }
-  };
+  //   if (serverResponse) {
+  //     setErrors(serverResponse);
+  //   } else {
+  //     closeModal();
+  //   }
+  // };
 
   return (
     <div className="signup-form-modal-container">

@@ -1,6 +1,7 @@
 const LOAD_VEHICLES = "vehicles/loadVehicles";
 // const ADD_VEHICLE = "vehicles/addVehicle";
 // const DELETE_VEHILCE = "vehicles/deleteVehicle";
+const CLEAR_VEHICLES = "vehicles/clearVehicles";
 
 const loadVehicles = (vehicles) => ({
   type: LOAD_VEHICLES,
@@ -14,13 +15,34 @@ const loadVehicles = (vehicles) => ({
 //   type: DELETE_VEHILCE,
 //   vehicleId,
 // });
+export const clearVehicles = () => ({
+  type: CLEAR_VEHICLES,
+});
 
 export const thunkLoadVehiclesForSell = () => async (dispatch) => {
   const response = await fetch("/api/cars");
 
   if (response.ok) {
     const data = await response.json();
-    return dispatch(loadVehicles(data));
+    const vehicles = dispatch(loadVehicles(data));
+    console.log({ vehicles });
+    return vehicles;
+  } else {
+    const errors = await response.json();
+    console.log({ errors });
+    return errors;
+  }
+};
+export const thunkLoadVehiclesBySearch = (query) => async (dispatch) => {
+  dispatch(clearVehicles());
+
+  const response = await fetch(`/api/cars/search/${query}`);
+
+  if (response.ok) {
+    const data = await response.json();
+    const vehicles = dispatch(loadVehicles(data));
+    console.log({ vehicles });
+    return vehicles;
   } else {
     const errors = await response.json();
     console.log({ errors });
@@ -50,6 +72,9 @@ const vehiclesReducer = (state = initialState, action) => {
         newState[vehicle.id] = vehicle;
       });
       return newState;
+    }
+    case CLEAR_VEHICLES: {
+      return initialState;
     }
     default: {
       return state;

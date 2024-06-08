@@ -1,4 +1,5 @@
 import { clearPurchases } from "./userPurchasesReducer";
+import { clearVehicles } from "./vehiclesReducer";
 
 const SET_USER = "session/setUser";
 const REMOVE_USER = "session/removeUser";
@@ -64,6 +65,7 @@ export const thunkLogout = () => async (dispatch) => {
   await fetch("/api/auth/logout");
   dispatch(removeUser());
   dispatch(clearPurchases());
+  dispatch(clearVehicles());
 };
 
 const initialState = { user: null };

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffcd29;
+  background-color: #019b98;
   border-radius: 0 0 10px 10px;
 }
 
@@ -28,6 +28,7 @@
 
 .landing-page-search {
   height: 30px;
+  width: 400px;
   border: none;
   border-radius: 54px;
   margin-left: 10px;

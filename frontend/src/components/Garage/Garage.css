@@ -1,6 +1,6 @@
 /********! PENDING PURCHASES !*********/
 .all-history {
-  padding: 0 30px;
+  padding: 50px 0 30px;
 }
 
 .all-history-pending-purchases {
@@ -89,6 +89,7 @@
   width: 50%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
   border: 2px solid rgba(0, 0, 0, 0.352);
   border-radius: 15px;

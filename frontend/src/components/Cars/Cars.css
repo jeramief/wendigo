@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   gap: 5%;
+  padding-top: 50px;
 }
 
 .for-sell-filter-panel {
@@ -23,15 +24,22 @@
 .for-sell-list-search-container {
   align-self: center;
   width: 50%;
+  min-width: 350px;
+  display: flex;
+  border-radius: 7px;
   margin-top: 30px;
-  margin-bottom: 20px;
+
+  /* justify-content: space-between; */
+  background-color: rgba(95, 95, 95, 0.352);
+  margin-bottom: 50px;
 }
 
 .for-sell-list-search {
   height: 45px;
   width: 100%;
-  background-color: rgba(95, 95, 95, 0.13);
-  border: 2px solid rgba(95, 95, 95, 0.352);
+  background-color: rgba(95, 95, 95, 0.352);
+  padding-left: 10px;
+  border: none;
   border-radius: 7px;
 }
 
@@ -39,11 +47,21 @@
   outline: none;
 }
 
+.for-sell-list-search-button {
+  cursor: pointer;
+  text-align: center;
+  width: 70px;
+  background-color: #cb594d;
+  border: none;
+  border-radius: 7px;
+  margin: 2px;
+}
+
 .cars-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
 }
 /******** CARS LIST *********/
 

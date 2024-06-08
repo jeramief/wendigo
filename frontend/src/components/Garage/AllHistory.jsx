@@ -23,17 +23,6 @@ const AllHistory = () => {
       .catch((error) => console.log(error));
   }, [dispatch]);
 
-  const priceFormat = (price) => {
-    const priceArray = String(price).split("");
-    const priceFormatted = [];
-
-    for (let i = priceArray.lenth - 3; i > 1; i - 3) {
-      priceFormatted.push(priceArray.slice(i - 3, i));
-    }
-
-    return priceFormatted.join("");
-  };
-
   return (
     <div className="all-history">
       <div className="all-history-pending-purchases">
@@ -105,12 +94,23 @@ const AllHistory = () => {
                           ) +
                           "," +
                           String(vehicles[purchase.vehicleId].price).slice(3)
-                        : String(vehicles[purchase.vehicleId].price).slice(
+                        : String(vehicles[purchase.vehicleId].price).length ===
+                          5
+                        ? String(vehicles[purchase.vehicleId].price).slice(
                             0,
                             2
                           ) +
                           "," +
                           String(vehicles[purchase.vehicleId].price).slice(2)
+                        : String(vehicles[purchase.vehicleId].price).length ===
+                          4
+                        ? String(vehicles[purchase.vehicleId].price).slice(
+                            0,
+                            1
+                          ) +
+                          "," +
+                          String(vehicles[purchase.vehicleId].price).slice(1)
+                        : vehicles[purchase.vehicleId].price
                     }`}
                   </span>
                 </div>
@@ -138,7 +138,7 @@ const AllHistory = () => {
                   <br />
                   <span>
                     <b>Vehicle: </b>
-                  </span>{" "}
+                  </span>
                   <span>
                     {`${vehicles[purchase.vehicleId].year} 
                   ${vehicles[purchase.vehicleId].make} 
@@ -148,7 +148,21 @@ const AllHistory = () => {
                   <span>
                     <b>Price: </b>
                   </span>
-                  <span>{vehicles[purchase.vehicleId].price}</span>
+                  <span>{`$${
+                    String(vehicles[purchase.vehicleId].price).length === 6
+                      ? String(vehicles[purchase.vehicleId].price).slice(0, 3) +
+                        "," +
+                        String(vehicles[purchase.vehicleId].price).slice(3)
+                      : String(vehicles[purchase.vehicleId].price).length === 5
+                      ? String(vehicles[purchase.vehicleId].price).slice(0, 2) +
+                        "," +
+                        String(vehicles[purchase.vehicleId].price).slice(2)
+                      : String(vehicles[purchase.vehicleId].price).length === 4
+                      ? String(vehicles[purchase.vehicleId].price).slice(0, 1) +
+                        "," +
+                        String(vehicles[purchase.vehicleId].price).slice(1)
+                      : vehicles[purchase.vehicleId].price
+                  }`}</span>
                 </div>
               </div>
             ) : null

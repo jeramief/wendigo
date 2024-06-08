@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
+from sqlalchemy import and_, or_, not_
 
 from app.models import db, Vehicle
 
@@ -26,3 +27,18 @@ def get_vehicle(car_id):
     vehicle = Vehicle.query.filter_by(id=car_id).first()
 
     return vehicle.to_dict()
+
+
+@vehicles_routes.route("/search/<query>")
+def search_for_vehicle(query):
+    """
+    Filter query for all vehicles available for sell by search query
+    """
+
+    vehicles_for_sell_filtered = (
+        Vehicle.query.filter_by(is_sold=False, is_for_sell=True)
+        .filter(or_(Vehicle.make.like(query), Vehicle.model.like(query)))
+        .all()
+    )
+
+    return [vehicle.to_dict() for vehicle in vehicles_for_sell_filtered]
