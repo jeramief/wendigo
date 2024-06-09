@@ -102,6 +102,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
 }
 
 .car-details {
@@ -109,7 +110,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+  margin-top: 60px;
   border: 2px solid rgba(0, 0, 0, 0.352);
   border-radius: 15px;
 }
@@ -165,8 +166,54 @@
   height: 30px;
   width: 100px;
   background-color: #cb594d;
-  border: none;
+  border: 1px solid #a82c1f;
   border-radius: 15px;
   margin: 2px;
+}
+
+.car-details-review-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.car-details-review-button {
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: #cb594d;
+  border: 1px solid #a82c1f;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+.car-details-review-carousel-reveiws-container {
+  display: flex;
+  align-items: center;
+}
+
+.car-details-review-carousel-reviews {
+  background-color: yellow;
+  height: 100px;
+  width: 500px;
+}
+
+.car-details-review-carousel-left-arrow,
+.car-details-review-carousel-right-arrow {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+}
+
+.car-details-review-carousel-left-arrow {
+  left: 25px;
+}
+
+.car-details-review-carousel-right-arrow {
+  right: 25px;
 }
 /******** CAR DETAILS *********/

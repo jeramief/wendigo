@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkEditReview } from "../../redux/reviewsReducer";
 import OpenModalButton from "../OpenModalButton";
 import DeleteReview from "./DeleteReview";
+import "./Reviews.css";
 
 const ReviewCard = ({ review }) => {
   const dispatch = useDispatch();
@@ -36,35 +37,36 @@ const ReviewCard = ({ review }) => {
   };
 
   return (
-    <div>
+    <div className="review-card">
       <br />
       <p>{review.userName}</p>
       <p>{review.vehicleType}</p>
       {editComment && review.userId == currentUser.id ? (
-        <div>
-          <input
-            type="text"
-            value={updateComment}
-            onChange={(e) => setUpdateComment(e.target.value)}
-            placeholder="Enter text"
-            required
-          />
-          <button onClick={confirmUpdate}>Update Review</button>
+        <div className="review-card">
+          <form onSubmit={confirmUpdate}>
+            <input
+              type="text"
+              value={updateComment}
+              onChange={(e) => setUpdateComment(e.target.value)}
+              placeholder="Enter text"
+              required
+            />
+            <button>Update Review</button>
+          </form>
           <button onClick={cancelUpdate}>Cancel Change</button>
         </div>
       ) : (
+        <p>{review.commentText}</p>
+      )}
+      {currentUser && review.userId === currentUser.id && (
         <div>
-          <p>{review.commentText}</p>
           <button onClick={() => setEditComment(true)}>Edit Review</button>
+          <OpenModalButton
+            buttonText="Delete Review"
+            modalComponent={<DeleteReview review={review} />}
+          />
         </div>
       )}
-      <OpenModalButton
-        buttonText="Delete Review"
-        modalComponent={<DeleteReview review={review} />}
-        // onModalClose={document
-        //   .getElementById("car-details-container-reviews-button")
-        //   .click()}
-      />
     </div>
   );
 };

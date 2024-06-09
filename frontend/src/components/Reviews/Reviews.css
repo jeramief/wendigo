@@ -1,0 +1,50 @@
+/*********** REVIEWS MODAL ***********/
+.review-modal {
+  width: 500px;
+  padding: 30px;
+}
+
+.review-modal-leave-review-container {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.352);
+}
+
+.review-modal-leave-review-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-modal-leave-review-submit {
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: #cb594d;
+  border: 1px solid #a82c1f;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+.review-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-modal-list-reviews-heading {
+  text-align: center;
+}
+/*********** REVIEWS MODAL ***********/
+
+/*********** REVIEW CARD ***********/
+.review-card {
+  padding: 0 20px 20px;
+  border: 2px solid rgba(0, 0, 0, 0.352);
+  border-radius: 15px;
+}
+/*********** REVIEW CARD ***********/

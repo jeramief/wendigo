@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { thunkAddReview, thunkLoadReviews } from "../../redux/reviewsReducer";
 import ReviewCard from "./ReviewCard";
+import "./Reviews.css";
 
 const ReviewsModal = ({ car }) => {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const ReviewsModal = ({ car }) => {
   };
 
   return (
-    <div>
+    <div className="review-modal">
       {isLoaded &&
         currentUser &&
         !reviews.filter(
@@ -63,33 +64,43 @@ const ReviewsModal = ({ car }) => {
             review.userId == currentUser.id && review.vehicleId === car.id
         ).length && (
           <div className="review-modal-leave-review-container">
-            <form onSubmit={addReview}>
+            <form
+              className="review-modal-leave-review-form"
+              onSubmit={addReview}
+            >
               <label>
-                Leave a Review
+                {"Leave a Review: "}
                 <input
                   type="text"
                   onChange={(e) => setComment(e.target.value)}
                   placeholder="Enter text"
                   required
                 />
-                {submitted && errors.comment && (
-                  <p className="errors">{errors.comment}</p>
-                )}
               </label>
-              <button type="submit">Submit Review</button>
+              <button
+                className="review-modal-leave-review-submit"
+                type="submit"
+              >
+                Submit Review
+              </button>
             </form>
+            {submitted && errors.comment && (
+              <p className="errors">{errors.comment}</p>
+            )}
           </div>
         )}
-      <hr />
       <div className="review-modal-list">
-        <h2>Reviews</h2>
-        {isLoaded &&
+        <h2 className="review-modal-list-reviews-heading">Reviews</h2>
+        {isLoaded && reviews.length ? (
           reviews.map(
             (review) =>
-              review?.vehicleId === car.id && (
+              review.vehicleId === car.id && (
                 <ReviewCard key={review.id} review={review} />
               )
-          )}
+          )
+        ) : (
+          <h3>No Reviews Currently</h3>
+        )}
       </div>
     </div>
   );

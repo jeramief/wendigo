@@ -24,7 +24,7 @@ const AllCarsForSell = () => {
       dispatch(thunkLoadVehiclesForSell()).then(() => setIsLoaded(true));
     else
       dispatch(thunkLoadVehiclesBySearch(search)).then(() => setIsLoaded(true));
-  }, [dispatch]);
+  }, [dispatch, search]);
 
   const onClick = (e) => {
     e.preventDefault();

@@ -37,7 +37,7 @@ def search_for_vehicle(query):
 
     vehicles_for_sell_filtered = (
         Vehicle.query.filter_by(is_sold=False, is_for_sell=True)
-        .filter(or_(Vehicle.make.like(query), Vehicle.model.like(query)))
+        .filter(or_(Vehicle.make.like(f"%{query}%"), Vehicle.model.like(f"%{query}%")))
         .all()
     )
 

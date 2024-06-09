@@ -76,9 +76,8 @@ const CarDetails = () => {
       )}
       {car && (
         <div className="car-details-review-carousel">
-          <div className="car-details-and-reviews-buttons"></div>
           <OpenModalButton
-            id="car-details-container-reviews-button"
+            setClass="car-details-review-button"
             buttonText="Reviews"
             modalComponent={<ReviewsModal car={car} />}
           />
@@ -86,17 +85,10 @@ const CarDetails = () => {
             <button className="car-details-review-carousel-left-arrow">
               left
             </button>
-            <div
-              style={{ background: "yellow", width: "500px", height: "100px" }}
-              className="car-details-review-carousel-reviews"
-            ></div>
+            <div className="car-details-review-carousel-reviews"></div>
             <button className="car-details-review-carousel-right-arrow">
               right
             </button>
-          </div>
-          <div className="car-details-review-carousel-review-buttons-container">
-            <button>SEE ALL # REVIEWS</button>
-            <button>CREATE REVIEW</button>
           </div>
         </div>
       )}

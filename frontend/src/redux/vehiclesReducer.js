@@ -25,7 +25,6 @@ export const thunkLoadVehiclesForSell = () => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     const vehicles = dispatch(loadVehicles(data));
-    console.log({ vehicles });
     return vehicles;
   } else {
     const errors = await response.json();
@@ -41,7 +40,6 @@ export const thunkLoadVehiclesBySearch = (query) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     const vehicles = dispatch(loadVehicles(data));
-    console.log({ vehicles });
     return vehicles;
   } else {
     const errors = await response.json();
