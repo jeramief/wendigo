@@ -19,7 +19,11 @@
   gap: 10px;
 }
 
-.review-modal-leave-review-submit {
+.review-modal-leave-review-submit,
+.review-card-update-review-submit,
+.review-card-cancel-change-review-button,
+.review-card-edit-review-button,
+.review-card-delete-review-button {
   cursor: pointer;
   text-align: center;
   height: 30px;
@@ -47,4 +51,28 @@
   border: 2px solid rgba(0, 0, 0, 0.352);
   border-radius: 15px;
 }
+
+.review-card-update-container {
+  display: flex;
+  padding: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.352);
+  border-radius: 15px;
+}
 /*********** REVIEW CARD ***********/
+
+/*********** DELETE REVIEW ***********/
+.delete-review-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+.delete-review-buttons {
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: #cb594d;
+  border: 1px solid #a82c1f;
+  border-radius: 15px;
+  margin: 2px;
+}
+/*********** DELETE REVIEW ***********/

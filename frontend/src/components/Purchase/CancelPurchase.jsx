@@ -14,10 +14,16 @@ const CancelPurchase = ({ purchase }) => {
   };
 
   return (
-    <div>
+    <div className="cancel-purchase-container">
       <h3>Are you sure you want to cancel this purchase?</h3>
-      <button onClick={deletePurchase}>Yes</button>
-      <button onClick={closeModal}>No</button>
+      <div className="cancel-purchase-buttons-container">
+        <button className="cancel-purchase-buttons" onClick={deletePurchase}>
+          Yes
+        </button>
+        <button className="cancel-purchase-buttons" onClick={closeModal}>
+          No
+        </button>
+      </div>
     </div>
   );
 };

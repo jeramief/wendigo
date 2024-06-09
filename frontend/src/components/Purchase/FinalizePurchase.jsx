@@ -27,8 +27,14 @@ const FinalizePurchase = ({ purchase }) => {
   return (
     <div>
       <h3>Do You Want To Finalize This Purchase</h3>
-      <button onClick={handleSubmit}>Yes</button>
-      <button onClick={closeModal}>No</button>
+      <div className="finalize-purchase-buttons-container">
+        <button className="finalize-purchase-buttons" onClick={handleSubmit}>
+          Yes
+        </button>
+        <button className="finalize-purchase-buttons" onClick={closeModal}>
+          No
+        </button>
+      </div>
     </div>
   );
 };

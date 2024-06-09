@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useModal } from "../../context/Modal";
@@ -14,9 +14,31 @@ const EditPurchase = ({ purchase }) => {
   const [deliveryAddress, setDeliveryAddress] = useState(
     purchase?.deliveryAddress
   );
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const errorsObject = {};
+
+    if (firstName.length < 2 || firstName.length > 20) {
+      errorsObject.firstName = "First name must be between 2 and 20 characters";
+    }
+    if (lastName.length < 2 || lastName.length > 20) {
+      errorsObject.lastName = "Last name must be between 2 and 20 characters";
+    }
+    if (deliveryAddress.length < 5 || deliveryAddress.length > 100) {
+      errorsObject.deliveryAddress =
+        "Address must be between 5 and 100 characters";
+    }
+
+    setErrors(errorsObject);
+  }, [deliveryAddress, firstName, lastName]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setSubmitted(true);
+    if (Object.values(errors).length) return;
 
     const editPurchaseInformation = {
       id: purchase.id,
@@ -34,20 +56,13 @@ const EditPurchase = ({ purchase }) => {
   };
 
   return (
-    <div className="purchase-modal-container">
+    <div className="edit-purchase-modal-container">
       <h3>Purchase Vehicle Form</h3>
       {currentUser ? (
         <div>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <div className="form-label">
-                <label htmlFor="first-name">First Name</label>
-                {/* {validations.name && (
-              <span className="form-error">{validations.name}</span>
-            ) || errors.name && (
-              <span className="form-error">{errors.name}</span>
-            )} */}
-              </div>
+          <form className="edit-purchase-modal-form" onSubmit={handleSubmit}>
+            <label className="edit-purchase-modal-form-input">
+              First Name
               <input
                 id="first-name"
                 type="text"
@@ -55,16 +70,12 @@ const EditPurchase = ({ purchase }) => {
                 onChange={(e) => setFirstName(e.target.value)}
                 required
               />
-            </div>
-            <div>
-              <div className="form-label">
-                <label htmlFor="last-name">Last Name</label>
-                {/* {validations.name && (
-              <span className="form-error">{validations.name}</span>
-            ) || errors.name && (
-              <span className="form-error">{errors.name}</span>
-            )} */}
-              </div>
+              {submitted && errors.firstName && (
+                <p className="errors">{errors.firstName}</p>
+              )}
+            </label>
+            <label className="edit-purchase-modal-form-input">
+              Last Name
               <input
                 id="last-name"
                 type="text"
@@ -72,16 +83,12 @@ const EditPurchase = ({ purchase }) => {
                 onChange={(e) => setLastName(e.target.value)}
                 required
               />
-            </div>
-            <div>
-              <div className="form-label">
-                <label htmlFor="delivery-address">Delivery Address</label>
-                {/* {validations.name && (
-              <span className="form-error">{validations.name}</span>
-            ) || errors.name && (
-              <span className="form-error">{errors.name}</span>
-            )} */}
-              </div>
+              {submitted && errors.lastName && (
+                <p className="errors">{errors.lastName}</p>
+              )}
+            </label>
+            <label className="edit-purchase-modal-form-input">
+              Delivery Address
               <input
                 id="delivery-address"
                 type="text"
@@ -90,9 +97,14 @@ const EditPurchase = ({ purchase }) => {
                 required
                 placeholder="Enter a fake address, this is a demo site."
               />
-            </div>
+              {submitted && errors.deliveryAddress && (
+                <p className="errors">{errors.deliveryAddress}</p>
+              )}
+            </label>
 
-            <button>Edit Information</button>
+            <button className="edit-purchase-modal-button">
+              Edit Information
+            </button>
           </form>
         </div>
       ) : null}

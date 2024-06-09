@@ -1,15 +1,19 @@
-.purchase-modal-container {
+/*********** PURCHASE MODAL ***********/
+.purchase-modal-container,
+.edit-purchase-modal-container {
   width: 390px;
   padding: 10px 30px 30px;
 }
 
-.purchase-modal-form {
+.purchase-modal-form,
+.edit-purchase-modal-form {
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
 }
 
-.purchase-modal-form-input {
+.purchase-modal-form-input,
+.edit-purchase-modal-form-input {
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -25,3 +29,56 @@
   border-radius: 15px;
   margin: 2px;
 }
+/*********** PURCHASE MODAL ***********/
+
+/*********** DELETE PURCHASE ***********/
+.cancel-purchase-container {
+  padding: 0 30px;
+}
+
+.cancel-purchase-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cancel-purchase-buttons {
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: #cb594d;
+  border: 1px solid #a82c1f;
+  border-radius: 15px;
+  margin: 2px;
+}
+/*********** DELETE PURCHASE ***********/
+
+/*********** EDIT PURCHASE ***********/
+.edit-purchase-modal-button {
+  align-self: center;
+  cursor: pointer;
+  text-align: center;
+  width: 100px;
+  background-color: #cb594d;
+  border: none;
+  border-radius: 15px;
+  margin: 2px;
+}
+/*********** EDIT PURCHASE ***********/
+
+/*********** FINALIZE PURCHASE ***********/
+.finalize-purchase-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+.finalize-purchase-buttons {
+  cursor: pointer;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: #cb594d;
+  border: 1px solid #a82c1f;
+  border-radius: 15px;
+  margin: 2px;
+}
+/*********** FINALIZE PURCHASE ***********/

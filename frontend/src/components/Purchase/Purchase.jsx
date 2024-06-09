@@ -10,14 +10,13 @@ const Purchase = ({ car }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
+  const currentUser = useSelector((state) => state.session.user);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-
-  const currentUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     const errorsObject = {};

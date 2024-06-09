@@ -33,6 +33,7 @@ const ReviewCard = ({ review }) => {
   const cancelUpdate = (e) => {
     e.preventDefault();
 
+    setUpdateComment(review.commentText);
     setEditComment(false);
   };
 
@@ -42,7 +43,7 @@ const ReviewCard = ({ review }) => {
       <p>{review.userName}</p>
       <p>{review.vehicleType}</p>
       {editComment && review.userId == currentUser.id ? (
-        <div className="review-card">
+        <div className="review-card-update-container">
           <form onSubmit={confirmUpdate}>
             <input
               type="text"
@@ -51,17 +52,30 @@ const ReviewCard = ({ review }) => {
               placeholder="Enter text"
               required
             />
-            <button>Update Review</button>
+            <button className="review-card-update-review-submit">
+              Update Review
+            </button>
           </form>
-          <button onClick={cancelUpdate}>Cancel Change</button>
+          <button
+            className="review-card-cancel-change-review-button"
+            onClick={cancelUpdate}
+          >
+            Cancel Change
+          </button>
         </div>
       ) : (
         <p>{review.commentText}</p>
       )}
       {currentUser && review.userId === currentUser.id && (
         <div>
-          <button onClick={() => setEditComment(true)}>Edit Review</button>
+          <button
+            className="review-card-edit-review-button"
+            onClick={() => setEditComment(true)}
+          >
+            Edit Review
+          </button>
           <OpenModalButton
+            setClass="review-card-delete-review-button"
             buttonText="Delete Review"
             modalComponent={<DeleteReview review={review} />}
           />
