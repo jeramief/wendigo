@@ -3,6 +3,26 @@ from random import choice, randint
 
 from app.models import db, User, environment, SCHEMA, Vehicle
 
+vehicle_urls = [
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/ford-escape-307669902.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-2664304602.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-1626298251.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-1657834906.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-2102309418.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-2737896522.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-2752580276.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-3034405954.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-3380561490.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-3779711998.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-3953879758.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-458161424.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-63105809.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-89400750.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-940161998.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-1007752304.jpg",
+    "https://wendigo-python.s3.us-east-2.amazonaws.com/th-2102309418.jpg",
+]
+
 
 # Adds a demo user, you can add other users here if you want
 def seed_vehicles():
@@ -22,14 +42,14 @@ def seed_vehicles():
         drivetrain="FWD",
         color="Red",
         vin="".join(choice("0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ") for _ in range(17)),
-        image="https://www.auto-data.net/images/f59/Acura-TL-III-UA6-7.jpg",
+        image="https://wendigo-python.s3.us-east-2.amazonaws.com/tercel-wendigo.jpg",
     )
 
-    for _ in range(20):
+    for _ in range(16):
         vehicle = Vehicle(
             is_sold=False,
             is_for_sell=True,
-            year=randint(2010, 2025),
+            year=randint(2010, 2023),
             price=randint(5000, 50000),
             make=choice(
                 [
@@ -44,7 +64,7 @@ def seed_vehicles():
                 ]
             ),
             model=choice(
-                ["Accord", "TL", "Camry", "Escape", "Silverado", "3 Series", "A4"]
+                ["Accord", "TL", "Camry", "Escape", "Impala", "IS", "3 Series", "A4"]
             ),
             mileage=randint(10000, 150000),
             # trim=choice(["LX", "EX", "Base", "Sport", "Luxury", "Limited", "SE"]),
@@ -57,7 +77,7 @@ def seed_vehicles():
             vin="".join(
                 choice("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ") for _ in range(17)
             ),
-            image="https://wendigo-python.s3.us-east-2.amazonaws.com/th-2752580276.jpg",
+            image=choice(vehicle_urls),
         )
 
         db.session.add(vehicle)

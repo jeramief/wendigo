@@ -58,8 +58,14 @@ const ReviewsCarousel = ({ car }) => {
         </button>
         {isLoaded && reviews.length ? (
           <div className="review-carousel-reviews">
-            <p>{reviews[reviewPosition].userName}</p>
-            <p>{reviews[reviewPosition].vehicleType}</p>
+            <p>
+              <b>{reviews[reviewPosition].userName}</b> from{" "}
+              {reviews[reviewPosition].userState}
+            </p>
+
+            <p>
+              <b>{reviews[reviewPosition].vehicleType}</b>
+            </p>
             <p>{reviews[reviewPosition].commentText}</p>
           </div>
         ) : (
