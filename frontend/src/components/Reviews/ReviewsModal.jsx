@@ -28,7 +28,7 @@ const ReviewsModal = ({ car }) => {
     const errorsObject = {};
 
     if (comment.length < 4 || comment.length > 100) {
-      errorsObject.comment = "Comment must be between 2 and 100 characters";
+      errorsObject.comment = "Comment must be between 4 and 100 characters";
     }
 
     setErrors(errorsObject);

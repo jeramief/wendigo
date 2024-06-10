@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { thunkEditReview } from "../../redux/reviewsReducer";
@@ -10,11 +10,26 @@ const ReviewCard = ({ review }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
 
+  const [submitted, setSubmitted] = useState(false);
   const [editComment, setEditComment] = useState(false);
   const [updateComment, setUpdateComment] = useState(review.commentText);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const errorsObject = {};
+
+    if (updateComment.length < 4 || updateComment.length > 100) {
+      errorsObject.comment = "Comment must be between 4 and 100 characters";
+    }
+
+    setErrors(errorsObject);
+  }, [updateComment]);
 
   const confirmUpdate = (e) => {
     e.preventDefault();
+    setSubmitted(true);
+
+    if (Object.values(errors).length) return;
 
     const updatedReview = {
       id: review.id,
@@ -55,6 +70,9 @@ const ReviewCard = ({ review }) => {
             <button className="review-card-update-review-submit">
               Update Review
             </button>
+            {submitted && errors.comment && (
+              <p className="errors">{errors.comment}</p>
+            )}
           </form>
           <button
             className="review-card-cancel-change-review-button"
