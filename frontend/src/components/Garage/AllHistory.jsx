@@ -124,6 +124,10 @@ const AllHistory = () => {
           Delivered Vehicles
         </h2>
         {isLoaded &&
+        allHistory.find((purchase) => purchase.finalized) ? null : (
+          <h3>No Pending Purchases</h3>
+        )}
+        {isLoaded &&
           allHistory.map((purchase) =>
             purchase.finalized ? (
               <div
