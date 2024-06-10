@@ -102,25 +102,45 @@
 }
 
 .review-carousel-reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #019b98;
   height: 100px;
   width: 500px;
+  border-radius: 15px;
+}
+
+.review-carousel-reviews p {
+  margin: 0;
 }
 
 .review-carousel-left-arrow,
 .review-carousel-right-arrow {
+  cursor: pointer;
+  text-align: center;
   position: relative;
-  height: 50px;
-  width: 50px;
-  border: none;
+  background-color: #cb594d;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid white;
   border-radius: 50%;
 }
 
+.review-carousel-left-arrow svg,
+.review-carousel-right-arrow svg {
+  font-size: xx-large;
+}
+
 .review-carousel-left-arrow {
-  left: 25px;
+  left: 30px;
 }
 
 .review-carousel-right-arrow {
-  right: 25px;
+  right: 30px;
 }
 /*********** REVIEWS CAROUSEL ***********/
