@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-import { thunkLoadReviews } from "../../redux/reviewsReducer";
+import { thunkLoadReviews } from "../../store/reviewsReducer";
 import OpenModalButton from "../OpenModalButton";
 import ReviewsModal from "./ReviewsModal";
 

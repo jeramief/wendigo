@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
+import { thunkLoadVehiclesForSell } from "../../store/vehiclesReducer";
 import OpenModalButton from "../OpenModalButton";
 import ShowImage from "../ShowImage";
 import { Purchase } from "../Purchase";

@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import Landing from "../components/Landing/Landing";
 import { AllCarsForSell, CarDetails } from "../components/Cars";
 import AllHistory from "../components/Garage/AllHistory";
+import { Sell } from "../components/Sell";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sell-my-car",
-        element: <h1>Sell Feature coming soon!</h1>,
+        element: <Sell />,
       },
       {
         path: "/garage",
@@ -35,10 +36,6 @@ export const router = createBrowserRouter([
       {
         path: "/garage/sells/:sellId",
         element: <h1>My Sell!</h1>,
-      },
-      {
-        path: "/garage/purchases",
-        element: <h1>Purchases!</h1>,
       },
       {
         path: "/garage/purchases/:purchaseId",

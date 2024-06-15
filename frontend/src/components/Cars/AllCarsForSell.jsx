@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
   thunkLoadVehiclesBySearch,
   thunkLoadVehiclesForSell,
-} from "../../redux/vehiclesReducer";
+} from "../../store/vehiclesReducer";
 import CarCard from "./CarCard";
 import "./Cars.css";
-import { useSearchParams } from "react-router-dom";
 
 const AllCarsForSell = () => {
   const dispatch = useDispatch();

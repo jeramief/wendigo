@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useModal } from "../../context/Modal";
-import { thunkEditPurchase } from "../../redux/userPurchasesReducer";
+import { thunkEditPurchase } from "../../store/userPurchasesReducer";
 
 const EditPurchase = ({ purchase }) => {
   const dispatch = useDispatch();

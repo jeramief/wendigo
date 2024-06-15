@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { thunkAddReview, thunkLoadReviews } from "../../redux/reviewsReducer";
+import { thunkAddReview, thunkLoadReviews } from "../../store/reviewsReducer";
 import ReviewCard from "./ReviewCard";
 import "./Reviews.css";
 

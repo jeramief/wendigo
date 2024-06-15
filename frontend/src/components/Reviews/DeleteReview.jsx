@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
+
 import { useModal } from "../../context/Modal";
-import { thunkDeleteReview } from "../../redux/reviewsReducer";
+import { thunkDeleteReview } from "../../store/reviewsReducer";
 import "./Reviews.css";
 
 const DeleteReview = ({ review }) => {
