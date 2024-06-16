@@ -35,7 +35,7 @@ export const thunkLoadVehiclesForSell = () => async (dispatch) => {
 export const thunkLoadVehiclesBySearch = (query) => async (dispatch) => {
   dispatch(clearVehicles());
 
-  const response = await fetch(`/api/cars/search/${query}`);
+  const response = await fetch(`/api/cars/search?query=${query}`);
 
   if (response.ok) {
     const data = await response.json();

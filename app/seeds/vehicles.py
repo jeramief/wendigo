@@ -2,6 +2,7 @@ from sqlalchemy.sql import text
 from random import choice, randint
 
 from app.models import db, User, environment, SCHEMA, Vehicle
+from app.utils.list_of_cars import randomCar
 
 vehicle_urls = [
     "https://wendigo-python.s3.us-east-2.amazonaws.com/ford-escape-307669902.jpg",
@@ -46,26 +47,16 @@ def seed_vehicles():
     )
 
     for _ in range(16):
+        # get a random car from the list of available cars
+        car = randomCar()
+
         vehicle = Vehicle(
             is_sold=False,
             is_for_sell=True,
             year=randint(2010, 2023),
             price=randint(5000, 50000),
-            make=choice(
-                [
-                    "Honda",
-                    "Acura",
-                    "Toyota",
-                    "Ford",
-                    "Chevrolet",
-                    "Lexus",
-                    "BMW",
-                    "Audi",
-                ]
-            ),
-            model=choice(
-                ["Accord", "TL", "Camry", "Escape", "Impala", "IS", "3 Series", "A4"]
-            ),
+            make=car[0],
+            model=car[1],
             mileage=randint(10000, 150000),
             # trim=choice(["LX", "EX", "Base", "Sport", "Luxury", "Limited", "SE"]),
             mpg=randint(20, 40),

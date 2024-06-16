@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useModal } from "../../context/Modal";
-import { thunkAddPurchase } from "../../redux/userPurchasesReducer";
+import { thunkAddPurchase } from "../../store/userPurchasesReducer";
 import "./Purchase.css";
 
 const Purchase = ({ car }) => {

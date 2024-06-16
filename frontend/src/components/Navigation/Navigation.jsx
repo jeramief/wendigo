@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
+import { thunkLoadVehiclesForSell } from "../../store/vehiclesReducer";
 import ProfileButton from "./ProfileButton";
 import logo from "/images/logo.svg";
 import "./Navigation.css";
-import { useDispatch } from "react-redux";
-import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 
 function Navigation() {
   const dispatch = useDispatch();
+
+  const currentUser = useSelector((state) => state.session.user);
 
   return (
     <nav className="nav">
@@ -22,12 +24,14 @@ function Navigation() {
         >
           SEARCH
         </NavLink>
-        {/* <NavLink className="nav-links" to="/sell-my-car">
+        <NavLink className="nav-links" to="/sell-my-car">
           SELL
-        </NavLink> */}
-        <NavLink className="nav-links" to="/garage">
-          MY GARAGE
         </NavLink>
+        {currentUser && (
+          <NavLink className="nav-links" to="/garage">
+            MY GARAGE
+          </NavLink>
+        )}
       </div>
 
       <div className="nav-links-container">

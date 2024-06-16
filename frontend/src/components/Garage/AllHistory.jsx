@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import OpenModalButton from "../OpenModalButton/";
+import { thunkLoadUserPurchases } from "../../store/userPurchasesReducer";
+import { thunkLoadVehiclesForSell } from "../../store/vehiclesReducer";
 import { CancelPurchase, EditPurchase, FinalizePurchase } from "../Purchase";
-import { thunkLoadUserPurchases } from "../../redux/userPurchasesReducer";
-import { thunkLoadVehiclesForSell } from "../../redux/vehiclesReducer";
 import ShowImage from "../ShowImage";
 import "./Garage.css";
 
@@ -145,8 +145,8 @@ const AllHistory = () => {
                   </span>
                   <span>
                     {`${vehicles[purchase.vehicleId].year} 
-                  ${vehicles[purchase.vehicleId].make} 
-                  ${vehicles[purchase.vehicleId].model}`}
+                      ${vehicles[purchase.vehicleId].make} 
+                      ${vehicles[purchase.vehicleId].model}`}
                   </span>
                   <br />
                   <span>

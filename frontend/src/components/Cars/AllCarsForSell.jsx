@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
   thunkLoadVehiclesBySearch,
   thunkLoadVehiclesForSell,
-} from "../../redux/vehiclesReducer";
+} from "../../store/vehiclesReducer";
 import CarCard from "./CarCard";
 import "./Cars.css";
-import { useSearchParams } from "react-router-dom";
 
 const AllCarsForSell = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const AllCarsForSell = () => {
   return (
     <>
       <main className="cars-for-sell">
-        {/* <div className="for-sell-filter-panel"></div> */}
+        <div className="for-sell-filter-panel"></div>
         <div className="cars">
           <form className="for-sell-list-search-container" onSubmit={onClick}>
             <input

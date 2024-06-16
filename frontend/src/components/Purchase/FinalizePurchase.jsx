@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
+
 import { useModal } from "../../context/Modal";
-import { thunkEditPurchase } from "../../redux/userPurchasesReducer";
+import { thunkEditPurchase } from "../../store/userPurchasesReducer";
 
 const FinalizePurchase = ({ purchase }) => {
   const dispatch = useDispatch();

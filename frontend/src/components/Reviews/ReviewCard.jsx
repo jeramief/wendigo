@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { thunkEditReview } from "../../redux/reviewsReducer";
+import { thunkEditReview } from "../../store/reviewsReducer";
 import OpenModalButton from "../OpenModalButton";
 import DeleteReview from "./DeleteReview";
 import "./Reviews.css";
