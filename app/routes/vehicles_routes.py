@@ -29,11 +29,13 @@ def get_vehicle(car_id):
     return vehicle.to_dict()
 
 
-@vehicles_routes.route("/search/<query>")
-def search_for_vehicle(query):
+@vehicles_routes.route("/search")
+def search_for_vehicle():
     """
-    Filter query for all vehicles available for sell by search query
+    Search query for all vehicles available for sell by search query
     """
+
+    query = request.args.get("query")
 
     vehicles_for_sell_filtered = (
         Vehicle.query.filter_by(is_sold=False, is_for_sell=True)

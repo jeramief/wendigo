@@ -29,12 +29,12 @@ cars = {
     "Dodge": ["Charger", "Challenger", "Durango", "Journey"],
     "Ram": ["1500", "2500", "3500"],
     "Mitsubishi": ["Outlander", "Eclipse Cross", "Mirage", "Outlander Sport"],
-    # "Land Rover": [
-    #     "Range Rover",
-    #     "Discovery",
-    #     "Range Rover Sport",
-    #     "Range Rover Evoque",
-    # ],
+    "Land Rover": [
+        "Range Rover",
+        "Discovery",
+        "Range Rover Sport",
+        "Range Rover Evoque",
+    ],
     # "Jaguar": ["F-Pace", "XE", "XF", "I-Pace"],
     # "Porsche": ["911", "Cayenne", "Panamera", "Macan", "Taycan"],
     "Genesis": ["G70", "G80", "G90"],
