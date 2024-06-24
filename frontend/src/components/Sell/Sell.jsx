@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { useModal } from "../../context/Modal";
+import { thunkAddSell } from "../../store/userSellsReducer";
 import listOfCars from "../../utils/listOfCars";
 import "./Sell.css";
 
 const Sell = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
 
   const makes = Object.keys(listOfCars);
@@ -21,9 +20,45 @@ const Sell = () => {
   const [mileage, setMileage] = useState("");
   const [transmission, setTransmission] = useState("");
   const [color, setColor] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const errorsObject = {};
+
+    if (VIN.length !== 17) {
+      errorsObject.VIN = "VIN must be 17 characters";
+    }
+    if (!parseInt(mileage)) {
+      errorsObject.mileage = "Mileage must be a number";
+    }
+    if (mileage < 0 || mileage > 150000) {
+      errorsObject.mileage =
+        "Mileage must be greater than 0 and less than 150,000";
+    }
+
+    setErrors(errorsObject);
+  }, [VIN, mileage]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setSubmitted(true);
+    if (Object.values(errors).length) return;
+
+    const addSell = {
+      userId: currentUser.id,
+      vehicleId: newVehicle.id,
+      offerPrice: 0,
+    };
+
+    dispatch(thunkAddSell(addSell));
+
+    navigate("/garage");
+  };
 
   return (
-    <form className="sell-form-container">
+    <form className="sell-form-container" onSubmit={handleSubmit}>
       <label>
         VIN
         <input
@@ -33,6 +68,7 @@ const Sell = () => {
           onChange={(e) => setVIN(e.target.value)}
           required
         />
+        {submitted && errors.VIN && <p className="errors">{errors.VIN}</p>}
       </label>
       <label>
         MAKE
@@ -53,7 +89,6 @@ const Sell = () => {
           value={model}
           onChange={(e) => setModel(e.target.value)}
           required
-          // disabled
         >
           <option value="" disabled>
             Select a Model
@@ -90,6 +125,9 @@ const Sell = () => {
           maxLength={6}
           required
         />
+        {submitted && errors.mileage && (
+          <p className="errors">{errors.mileage}</p>
+        )}
       </label>
       <label>
         TRANSMISSION
@@ -128,6 +166,7 @@ const Sell = () => {
           <option value="Other">Other</option>
         </select>
       </label>
+      <button className="sell-form-button">Get Offer</button>
     </form>
   );
 };
