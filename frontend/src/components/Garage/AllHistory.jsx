@@ -31,7 +31,7 @@ const AllHistory = () => {
         </h2>
         {isLoaded &&
         allHistory.find((purchase) => !purchase.finalized) ? null : (
-          <h3>No Pending Purchases</h3>
+          <h3 className="empty-purchases">No Pending Purchases</h3>
         )}
         {isLoaded &&
           allHistory.map((purchase) =>
@@ -125,7 +125,7 @@ const AllHistory = () => {
         </h2>
         {isLoaded &&
         allHistory.find((purchase) => purchase.finalized) ? null : (
-          <h3>No Pending Purchases</h3>
+          <h3 className="empty-purchases">No Finalized Purchases</h3>
         )}
         {isLoaded &&
           allHistory.map((purchase) =>
