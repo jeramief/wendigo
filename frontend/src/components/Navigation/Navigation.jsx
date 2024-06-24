@@ -24,9 +24,18 @@ function Navigation() {
         >
           SEARCH
         </NavLink>
-        <NavLink className="nav-links" to="/sell-my-car">
-          SELL
-        </NavLink>
+        {!currentUser ? (
+          <a
+            className="nav-links"
+            onClick={() => window.alert("Log In to sell your vehicle")}
+          >
+            SELL
+          </a>
+        ) : (
+          <NavLink className="nav-links" to="/sell-my-car">
+            SELL
+          </NavLink>
+        )}
         {currentUser && (
           <NavLink className="nav-links" to="/garage">
             MY GARAGE

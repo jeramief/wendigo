@@ -46,5 +46,5 @@ export default {
   Ferrari: ["488", "812", "F8", "SF90"],
   Lamborghini: ["Aventador", "Huracan", "Urus"],
   Bugatti: ["Chiron", "Veyron"],
-  Koenigsegg: ["Regera", "Agera", "Jesko"],
+  // Koenigsegg: ["Regera", "Agera", "Jesko"],
 };

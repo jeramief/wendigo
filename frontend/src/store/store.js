@@ -9,12 +9,14 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import vehiclesReducer from "./vehiclesReducer";
 import userPurchasesReducer from "./userPurchasesReducer";
+import userSellReducer from "./userSellsReducer";
 import reviewsReducer from "./reviewsReducer";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   vehiclesState: vehiclesReducer,
   userPurchasesState: userPurchasesReducer,
+  userSellState: userSellReducer,
   reviewsState: reviewsReducer,
 });
 

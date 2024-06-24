@@ -82,10 +82,12 @@ const Sell = () => {
       <label>
         MILEAGE
         <input
-          type="number"
+          type="text"
+          inputMode="numeric"
           value={mileage}
           placeholder="Enter mileage"
           onChange={(e) => setMileage(e.target.value)}
+          maxLength={6}
           required
         />
       </label>
