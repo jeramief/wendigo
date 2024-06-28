@@ -27,15 +27,20 @@ https://wendigo.onrender.com/
 
 # Vehicle Details
 
+# Endpoints
+
 # Feature List
 
-1.
-2.
-3.
+1. Purchase Vehicle
+2. Reviews
+3. Search
 
 # Future Implementation Goals
 
-1.
+1. Sell Vehicle
+2. Wishlist
+3. Filters
+4. Payments
 
 # Connect
 
