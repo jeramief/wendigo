@@ -22,10 +22,13 @@ https://wendigo.onrender.com/
 [Features List](https://github.com/jeramief/wendigo/wiki/Feature-List) | [Database Schema](https://github.com/jeramief/wendigo/wiki/Database-Schema) | [User Stories](https://github.com/jeramief/wendigo/wiki/User-Stories) | [Wireframes](https://github.com/jeramief/wendigo/wiki/User-Stories)
 
 # Landing Page
+![Screenshot 2024-06-27 214411](https://github.com/jeramief/wendigo/assets/109633173/77a1e86c-cffa-4f3b-bd54-3ee99e451a3e)
 
 # Vehicles For Sell
+![Screenshot 2024-06-27 221629](https://github.com/jeramief/wendigo/assets/109633173/35a4442e-32b7-48aa-aa8e-6a557c76314e)
 
 # Vehicle Details
+![Screenshot 2024-06-27 221805](https://github.com/jeramief/wendigo/assets/109633173/92853935-e834-4174-a838-46d7933203e5)
 
 # Endpoints
 
