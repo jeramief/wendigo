@@ -156,6 +156,7 @@ https://wendigo.onrender.com/
 2. Wishlist
 3. Filters
 4. Payments
+5. OAuth
 
 # Connect
 
