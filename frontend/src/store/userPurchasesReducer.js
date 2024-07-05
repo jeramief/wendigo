@@ -27,8 +27,7 @@ export const thunkLoadUserPurchases = () => async (dispatch) => {
     return dispatch(loadPurchases(data));
   } else {
     const errors = await response.json();
-    console.log({ errors });
-    return;
+    return errors;
   }
 };
 export const thunkAddPurchase = (purchase) => async (dispatch) => {
@@ -50,8 +49,7 @@ export const thunkAddPurchase = (purchase) => async (dispatch) => {
     return dispatch(addPurchase(data));
   } else {
     const errors = await response.json();
-    console.log({ errors });
-    return;
+    return errors;
   }
 };
 export const thunkEditPurchase = (purchase) => async (dispatch) => {
@@ -73,8 +71,7 @@ export const thunkEditPurchase = (purchase) => async (dispatch) => {
     return dispatch(addPurchase(data));
   } else {
     const errors = await response.json();
-    console.log({ errors });
-    return;
+    return errors;
   }
 };
 export const thunkDeletePurchase = (purchaseId) => async (dispatch) => {
@@ -84,7 +81,6 @@ export const thunkDeletePurchase = (purchaseId) => async (dispatch) => {
     return dispatch(deletePurchase(purchaseId));
   } else {
     const errors = await response.json();
-    console.log({ errors });
     return errors;
   }
 };

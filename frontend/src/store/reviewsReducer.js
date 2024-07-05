@@ -20,7 +20,6 @@ export const thunkLoadReviews = () => async (dispatch) => {
     .then((response) => response.json())
     .then((data) => dispatch(loadReviews(data)))
     .catch((errors) => {
-      console.log({ errors });
       return errors;
     });
 };
@@ -45,7 +44,6 @@ export const thunkAddReview = (review) => async (dispatch) => {
       dispatch(addReview(data));
     })
     .catch((errors) => {
-      console.log({ errors });
       return errors;
     });
 };
@@ -69,7 +67,6 @@ export const thunkEditReview = (review) => async (dispatch) => {
     return dispatch(addReview(data));
   } else {
     const errors = await response.json();
-    console.log({ errors });
     return errors;
   }
 };
@@ -77,7 +74,6 @@ export const thunkDeleteReview = (reviewId) => async (dispatch) => {
   fetch(`/api/reviews/${reviewId}/delete`)
     .then(() => dispatch(deleteReview(reviewId)))
     .catch((errors) => {
-      console.log({ errors });
       return errors;
     });
 };

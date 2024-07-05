@@ -22,7 +22,7 @@ const ReviewsCarousel = ({ car }) => {
     dispatch(thunkLoadReviews())
       .then(() => setIsLoaded(true))
       .catch((errors) => {
-        console.log({ errors });
+        return errors;
       });
   }, [dispatch]);
 

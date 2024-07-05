@@ -28,7 +28,6 @@ export const thunkLoadVehiclesForSell = () => async (dispatch) => {
     return vehicles;
   } else {
     const errors = await response.json();
-    console.log({ errors });
     return errors;
   }
 };
@@ -43,7 +42,6 @@ export const thunkLoadVehiclesBySearch = (query) => async (dispatch) => {
     return vehicles;
   } else {
     const errors = await response.json();
-    console.log({ errors });
     return errors;
   }
 };
@@ -55,7 +53,6 @@ export const thunkLoadVehicleById = (vehicleId) => async (dispatch) => {
     dispatch(loadVehicles([vehicle]));
   } else {
     const errors = await response.json();
-    console.log(errors);
     return errors;
   }
 };

@@ -19,9 +19,7 @@ const ReviewsModal = ({ car }) => {
   useEffect(() => {
     dispatch(thunkLoadReviews())
       .then(() => setIsLoaded(true))
-      .catch((errors) => {
-        console.log({ errors });
-      });
+      .catch((errors) => errors);
   }, [dispatch]);
 
   useEffect(() => {

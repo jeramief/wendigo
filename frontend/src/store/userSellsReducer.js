@@ -27,8 +27,7 @@ export const thunkLoadUserSells = () => async (dispatch) => {
     return dispatch(loadSells(data));
   } else {
     const errors = await response.json();
-    console.log({ errors });
-    return;
+    return errors;
   }
 };
 export const thunkAddSell = (sell) => async (dispatch) => {
@@ -47,8 +46,7 @@ export const thunkAddSell = (sell) => async (dispatch) => {
     return dispatch(addSell(data));
   } else {
     const errors = await response.json();
-    console.log({ errors });
-    return;
+    return errors;
   }
 };
 export const thunkEditSell = (sell) => async (dispatch) => {
@@ -67,8 +65,7 @@ export const thunkEditSell = (sell) => async (dispatch) => {
     return dispatch(addSell(data));
   } else {
     const errors = await response.json();
-    console.log({ errors });
-    return;
+    return errors;
   }
 };
 export const thunkDeleteSell = (sellId) => async (dispatch) => {
@@ -78,7 +75,6 @@ export const thunkDeleteSell = (sellId) => async (dispatch) => {
     return dispatch(deleteSell(sellId));
   } else {
     const errors = await response.json();
-    console.log({ errors });
     return errors;
   }
 };

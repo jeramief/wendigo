@@ -20,7 +20,7 @@ const AllHistory = () => {
     dispatch(thunkLoadUserPurchases())
       .then(() => dispatch(thunkLoadVehiclesForSell()))
       .then(() => setIsLoaded(true))
-      .catch((error) => console.log(error));
+      .catch((errors) => errors);
   }, [dispatch]);
 
   return (
