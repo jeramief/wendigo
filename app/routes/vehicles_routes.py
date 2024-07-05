@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from sqlalchemy import and_, or_, not_
+from sqlalchemy.sql.operators import ilike_op
 
 from app.models import db, Vehicle, vehicle
 
@@ -40,7 +41,11 @@ def search_for_vehicle():
     vehicles_for_sell_filtered = (
         Vehicle.query.filter_by(is_sold=False, is_for_sell=True)
         .filter(
-            or_(Vehicle.make.ilike(f"%{query}%"), Vehicle.model.ilike(f"%{query}%"))
+            or_(
+                ilike_op(Vehicle.make, f"%{query}%"),
+                ilike_op(Vehicle.model, f"%{query}%"),
+            )
+            # or_(Vehicle.make.ilike(f"%{query}%"), Vehicle.model.ilike(f"%{query}%"))
         )
         .all()
     )
