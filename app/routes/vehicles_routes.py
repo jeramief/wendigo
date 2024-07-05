@@ -45,7 +45,6 @@ def search_for_vehicle():
                 ilike_op(Vehicle.make, f"%{query}%"),
                 ilike_op(Vehicle.model, f"%{query}%"),
             )
-            # or_(Vehicle.make.ilike(f"%{query}%"), Vehicle.model.ilike(f"%{query}%"))
         )
         .all()
     )
